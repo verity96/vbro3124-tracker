@@ -1,0 +1,11 @@
+{
+  "name": "vbro3124-tracker",
+  "version": "1.0.0",
+  "description": "Web Application for tracking...",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Verity Brown",
+  "license": "ISC"
+}
