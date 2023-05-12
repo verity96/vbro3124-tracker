@@ -1,0 +1,25 @@
+@import 'layout';
+@import 'typography';
+@import 'buttons';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #F4AFCF;
+}
+
+footer {
+    background-color: #EB5B44;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    p {
+        text-align: right;
+        color: white;
+        margin: 20px;
+    }
+}
