@@ -1,3 +1,25 @@
+/*Replicates bootstrap contianer class*/
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  @media (min-width: 768px) {
+    .container {
+      width: 750px;
+    }
+  }
+  @media (min-width: 992px) {
+    .container {
+      width: 970px;
+    }
+  }
+  @media (min-width: 1200px) {
+    .container {
+      width: 1170px;
+    }
+  }
 
 /*GRID STRUCTURE- classes set up to work like bootstrap without importing bootstrap*/
 .row {
@@ -79,8 +101,6 @@
 .col-xl-auto {
     position: relative;
     width: 100%;
-    padding-right: 0.75rem;
-    padding-left: 0.75rem;
 }
 
 .col {
@@ -533,3 +553,17 @@
     }
 }
 
+.category-box {
+    margin-top: 3rem;
+    padding: 0px 40px;
+}
+
+.parent {
+    display: grid;
+    height: 40rem;
+    grid-template-columns: repeat(3, 0.5fr);
+    grid-template-rows: repeat(4, 0.5fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    padding-right: 4rem;
+    } 

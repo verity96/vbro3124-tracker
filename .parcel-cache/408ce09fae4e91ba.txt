@@ -1,4 +1,4 @@
-6362
+6366
 67C:\Users\verit\vbro3124-tracker\node_modules\domutils\lib\legacy.js133265129430272560 0
 61C:\Users\verit\vbro3124-tracker\node_modules\htmlnano\test.js133265129463367348 0
 62C:\Users\verit\vbro3124-tracker\node_modules\binary-extensions133265149830763884 1
@@ -36,7 +36,7 @@
 97C:\Users\verit\vbro3124-tracker\node_modules\caniuse-lite\data\features\page-transition-events.js133265129520649761 0
 53C:\Users\verit\vbro3124-tracker\node_modules\msgpackr133265129475344291 1
 52C:\Users\verit\vbro3124-tracker\node_modules\has\src133240949073050478 1
-56C:\Users\verit\vbro3124-tracker\public\scss\buttons.scss133265155966879865 0
+56C:\Users\verit\vbro3124-tracker\public\scss\buttons.scss133289362482231170 0
 59C:\Users\verit\vbro3124-tracker\node_modules\object-inspect133240949077058254 1
 72C:\Users\verit\vbro3124-tracker\node_modules\object-inspect\package.json133240949076882386 0
 94C:\Users\verit\vbro3124-tracker\node_modules\caniuse-lite\data\features\css-read-only-write.js133265129497456091 0
@@ -56,7 +56,7 @@
 61C:\Users\verit\vbro3124-tracker\node_modules\readdirp\LICENSE133265149829190101 0
 102C:\Users\verit\vbro3124-tracker\node_modules\@parcel\core\test\fixtures\invalid-target-source-not-file133265129497667891 1
 92C:\Users\verit\vbro3124-tracker\node_modules\csso\node_modules\css-tree\lib\walker\create.js133265129493907511 0
-36C:\Users\verit\vbro3124-tracker\dist133283325051335966 1
+36C:\Users\verit\vbro3124-tracker\dist133289362318822443 1
 44C:\Users\verit\vbro3124-tracker\node_modules133265151953421180 1
 73C:\Users\verit\vbro3124-tracker\node_modules\@parcel\cache\src\FSCache.js133265129436289647 0
 49C:\Users\verit\vbro3124-tracker\node_modules\.bin133265149833502301 1
@@ -76,12 +76,28 @@
 94C:\Users\verit\vbro3124-tracker\node_modules\caniuse-lite\data\features\css-in-out-of-range.js133265129495116049 0
 120C:\Users\verit\vbro3124-tracker\node_modules\@parcel\source-map\parcel_sourcemap_wasm\dist-node\parcel_sourcemap_wasm.js133265129450814261 0
 104C:\Users\verit\vbro3124-tracker\node_modules\lmdb\dependencies\lmdb-data-v1\libraries\liblmdb\mdb_drop.c133265129467432919 0
-38C:\Users\verit\vbro3124-tracker\public133265150988819923 1
+38C:\Users\verit\vbro3124-tracker\public133289345366473538 1
 41C:\Users\verit\vbro3124-tracker\README.md133240940965843280 0
 91C:\Users\verit\vbro3124-tracker\node_modules\caniuse-lite\data\features\multibackgrounds.js133265129518483891 0
 85C:\Users\verit\vbro3124-tracker\node_modules\caniuse-lite\data\features\nav-timing.js133265129519049835 0
 54C:\Users\verit\vbro3124-tracker\node_modules\lmdb\util133265129490772087 1
 59C:\Users\verit\vbro3124-tracker\node_modules\setprototypeof133240949074360873 1
+49C:\Users\verit\vbro3124-tracker\node_modules\depd133240949074698782 1
+95C:\Users\verit\vbro3124-tracker\node_modules\csso\node_modules\css-tree\lib\syntax\node\Hash.js133265129496102943 0
+64C:\Users\verit\vbro3124-tracker\node_modules\http-errors\LICENSE133240949071531147 0
+80C:\Users\verit\vbro3124-tracker\node_modules\caniuse-lite\data\regions\alt-as.js133265129455324714 0
+97C:\Users\verit\vbro3124-tracker\node_modules\@parcel\optimizer-image\parcel-image.darwin-x64.node133265129474530209 0
+101C:\Users\verit\vbro3124-tracker\node_modules\csso\node_modules\css-tree\lib\syntax\node\MediaQuery.js133265129498356840 0
+63C:\Users\verit\vbro3124-tracker\node_modules\chrome-trace-event133265129434207800 1
+78C:\Users\verit\vbro3124-tracker\node_modules\caniuse-lite\data\features\wav.js133265129530793015 0
+64C:\Users\verit\vbro3124-tracker\node_modules\content-disposition133240949074522040 1
+63C:\Users\verit\vbro3124-tracker\node_modules\proxy-addr\LICENSE133240949071298490 0
+56C:\Users\verit\vbro3124-tracker\node_modules\cosmiconfig133265129462365197 1
+50C:\Users\verit\vbro3124-tracker\node_modules\bytes133240949074011765 1
+111C:\Users\verit\vbro3124-tracker\node_modules\@parcel\optimizer-svgo\node_modules\mdn-data\css\units.schema.json133265129467808580 0
+57C:\Users\verit\vbro3124-tracker\node_modules\js-yaml\dist133265129464859027 1
+45C:\Users\verit\vbro3124-tracker\public\Images133289345750988213 1
+57C:\Users\verit\vbro3124-tracker\node_modules\is-json\test133265129432328718 1
 71C:\Users\verit\vbro3124-tracker\node_modules\csso\node_modules\mdn-data133265129469218434 1
 82C:\Users\verit\vbro3124-tracker\node_modules\@parcel\core\lib\public\Dependency.js133265129478910480 0
 77C:\Users\verit\vbro3124-tracker\node_modules\@parcel\core\src\ParcelConfig.js133265129488283143 0
@@ -93,7 +109,7 @@
 76C:\Users\verit\vbro3124-tracker\node_modules\send\node_modules\ms\license.md133240949073514839 0
 81C:\Users\verit\vbro3124-tracker\node_modules\@jridgewell\resolve-uri\package.json133265129423918534 0
 90C:\Users\verit\vbro3124-tracker\node_modules\@parcel\packager-js\lib\GlobalOutputFormat.js133265129453361520 0
-49C:\Users\verit\vbro3124-tracker\public\index.html133283323622624907 0
+49C:\Users\verit\vbro3124-tracker\public\index.html133289360942157626 0
 91C:\Users\verit\vbro3124-tracker\node_modules\csso\node_modules\css-tree\lib\syntax\function133265129501738223 1
 65C:\Users\verit\vbro3124-tracker\node_modules\svgo\lib\svgo\coa.js133265129453488385 0
 73C:\Users\verit\vbro3124-tracker\node_modules\nth-check\lib\esm\compile.js133265129424605922 0
@@ -116,7 +132,7 @@
 101C:\Users\verit\vbro3124-tracker\node_modules\@parcel\node-resolver-core\test\fixture\node_modules\foo133265129484660499 1
 74C:\Users\verit\vbro3124-tracker\node_modules\update-browserslist-db\cli.js133265129427909904 0
 85C:\Users\verit\vbro3124-tracker\node_modules\source-map-js\lib\source-map-consumer.js133265129435154326 0
-55C:\Users\verit\vbro3124-tracker\public\scss\layout.scss133265155848392559 0
+55C:\Users\verit\vbro3124-tracker\public\scss\layout.scss133289358828994072 0
 78C:\Users\verit\vbro3124-tracker\node_modules\svgo\plugins\removeHiddenElems.js133265129470666936 0
 70C:\Users\verit\vbro3124-tracker\node_modules\posthtml-parser\readme.md133265129434932594 0
 68C:\Users\verit\vbro3124-tracker\node_modules\weak-lru-cache\index.js133265129427850246 0
@@ -129,7 +145,7 @@
 69C:\Users\verit\vbro3124-tracker\node_modules\terser\lib\propmangle.js133265129474530209 0
 66C:\Users\verit\vbro3124-tracker\node_modules\mdn-data\css\index.js133265129424575781 0
 51C:\Users\verit\vbro3124-tracker\node_modules\@lezer133265129397701354 1
-53C:\Users\verit\vbro3124-tracker\public\scss\main.scss133283325037976735 0
+53C:\Users\verit\vbro3124-tracker\public\scss\main.scss133289352585887729 0
 108C:\Users\verit\vbro3124-tracker\node_modules\csso\node_modules\css-tree\lib\syntax\config\parser-selector.js133265129499195520 0
 54C:\Users\verit\vbro3124-tracker\node_modules\@trysound133265129397656229 1
 75C:\Users\verit\vbro3124-tracker\node_modules\@parcel\optimizer-htmlnano\src133265129453445176 1
@@ -142,7 +158,10 @@
 79C:\Users\verit\vbro3124-tracker\node_modules\terser\lib\compress\reduce-vars.js133265129474964985 0
 51C:\Users\verit\vbro3124-tracker\node_modules\@babel133265129397701354 1
 84C:\Users\verit\vbro3124-tracker\node_modules\@parcel\runtime-browser-hmr\src\loaders133265129446564617 1
-59C:\Users\verit\vbro3124-tracker\public\scss\typography.scss133283328516556739 0
+59C:\Users\verit\vbro3124-tracker\public\scss\typography.scss133289336096767688 0
+56C:\Users\verit\vbro3124-tracker\node_modules\js-yaml\bin133265129450613998 1
+56C:\Users\verit\vbro3124-tracker\node_modules\utils-merge133240949074032051 1
+57C:\Users\verit\vbro3124-tracker\public\Images\Asset 1.svg133289338108587904 0
 63C:\Users\verit\vbro3124-tracker\node_modules\.package-lock.json133265151954943918 0
 79C:\Users\verit\vbro3124-tracker\node_modules\htmlnano\docs\docusaurus.config.js133265129441976377 0
 73C:\Users\verit\vbro3124-tracker\node_modules\object-inspect\example\fn.js133240949075615229 0
@@ -211,8 +230,6 @@
 59C:\Users\verit\vbro3124-tracker\node_modules\braces\LICENSE133265129428531327 0
 70C:\Users\verit\vbro3124-tracker\node_modules\lmdb\dependencies\lz4\lib133265129491857228 1
 53C:\Users\verit\vbro3124-tracker\node_modules\argparse133265129436936822 1
-58C:\Users\verit\vbro3124-tracker\node_modules\source-map-js133265129452824132 1
-52C:\Users\verit\vbro3124-tracker\node_modules\destroy133240949073080578 1
 58C:\Users\verit\vbro3124-tracker\node_modules\array-flatten133240949073987834 1
 68C:\Users\verit\vbro3124-tracker\node_modules\domhandler\package.json133265129428949350 0
 91C:\Users\verit\vbro3124-tracker\node_modules\electron-to-chromium\full-chromium-versions.js133265129428691978 0
@@ -239,18 +256,6 @@
 73C:\Users\verit\vbro3124-tracker\node_modules\domutils\lib\manipulation.js133265129431791161 0
 51C:\Users\verit\vbro3124-tracker\node_modules\braces133265129431395183 1
 76C:\Users\verit\vbro3124-tracker\node_modules\caniuse-lite\data\regions\SL.js133265129525391562 0
-49C:\Users\verit\vbro3124-tracker\node_modules\depd133240949074698782 1
-95C:\Users\verit\vbro3124-tracker\node_modules\csso\node_modules\css-tree\lib\syntax\node\Hash.js133265129496102943 0
-64C:\Users\verit\vbro3124-tracker\node_modules\http-errors\LICENSE133240949071531147 0
-80C:\Users\verit\vbro3124-tracker\node_modules\caniuse-lite\data\regions\alt-as.js133265129455324714 0
-97C:\Users\verit\vbro3124-tracker\node_modules\@parcel\optimizer-image\parcel-image.darwin-x64.node133265129474530209 0
-101C:\Users\verit\vbro3124-tracker\node_modules\csso\node_modules\css-tree\lib\syntax\node\MediaQuery.js133265129498356840 0
-63C:\Users\verit\vbro3124-tracker\node_modules\chrome-trace-event133265129434207800 1
-78C:\Users\verit\vbro3124-tracker\node_modules\caniuse-lite\data\features\wav.js133265129530793015 0
-64C:\Users\verit\vbro3124-tracker\node_modules\content-disposition133240949074522040 1
-63C:\Users\verit\vbro3124-tracker\node_modules\proxy-addr\LICENSE133240949071298490 0
-56C:\Users\verit\vbro3124-tracker\node_modules\cosmiconfig133265129462365197 1
-50C:\Users\verit\vbro3124-tracker\node_modules\bytes133240949074011765 1
 121C:\Users\verit\vbro3124-tracker\node_modules\@parcel\optimizer-htmlnano\node_modules\csso\lib\replace\atrule\keyframes.js133265129472335470 0
 119C:\Users\verit\vbro3124-tracker\node_modules\@parcel\optimizer-svgo\node_modules\css-tree\lib\definition-syntax\walk.js133265129492138266 0
 71C:\Users\verit\vbro3124-tracker\node_modules\@parcel\workers\lib\bus.js133265129433125887 0
@@ -311,12 +316,14 @@
 87C:\Users\verit\vbro3124-tracker\node_modules\node-gyp-build-optional-packages\README.md133265129433275160 0
 55C:\Users\verit\vbro3124-tracker\node_modules\css-select133265129478494517 1
 107C:\Users\verit\vbro3124-tracker\node_modules\css-select\node_modules\entities\lib\esm\decode_codepoint.d.ts133265129478129424 0
-65C:\Users\verit\vbro3124-tracker\node_modules\htmlnano\LICENSE.txt133265129480738070 0
-56C:\Users\verit\vbro3124-tracker\node_modules\detect-libc133265129433357145 1
 70C:\Users\verit\vbro3124-tracker\node_modules\@parcel\packager-html\lib133265129436866708 1
 77C:\Users\verit\vbro3124-tracker\node_modules\css-tree\cjs\convertor\index.cjs133265129476199188 0
 83C:\Users\verit\vbro3124-tracker\node_modules\@swc\helpers\lib\_non_iterable_rest.js133265129476086373 0
 53C:\Users\verit\vbro3124-tracker\node_modules\css-tree133265129502593522 1
+58C:\Users\verit\vbro3124-tracker\node_modules\source-map-js133265129452824132 1
+52C:\Users\verit\vbro3124-tracker\node_modules\destroy133240949073080578 1
+65C:\Users\verit\vbro3124-tracker\node_modules\htmlnano\LICENSE.txt133265129480738070 0
+56C:\Users\verit\vbro3124-tracker\node_modules\detect-libc133265129433357145 1
 75C:\Users\verit\vbro3124-tracker\node_modules\object-inspect\test\lowbyte.js133240949076330889 0
 82C:\Users\verit\vbro3124-tracker\node_modules\@swc\helpers\src\_read_only_error.mjs133265129493585736 0
 67C:\Users\verit\vbro3124-tracker\node_modules\toidentifier\README.md133240949073932108 0
@@ -398,8 +405,6 @@
 62C:\Users\verit\vbro3124-tracker\node_modules\parseurl\index.js133240949072997049 0
 96C:\Users\verit\vbro3124-tracker\node_modules\@swc\helpers\src\_unsupported_iterable_to_array.mjs133265129495305583 0
 82C:\Users\verit\vbro3124-tracker\node_modules\svgo\plugins\moveGroupAttrsToElems.js133265129461875658 0
-77C:\Users\verit\vbro3124-tracker\node_modules\msgpackr\dist\unpack-no-eval.cjs133265129436568573 0
-78C:\Users\verit\vbro3124-tracker\node_modules\caniuse-lite\data\features\eot.js133265129503494441 0
 53C:\Users\verit\vbro3124-tracker\node_modules\readdirp133265149830624847 1
 94C:\Users\verit\vbro3124-tracker\node_modules\@babel\highlight\node_modules\chalk\index.js.flow133265129450733679 0
 52C:\Users\verit\vbro3124-tracker\node_modules\express133240949076330889 1
@@ -837,15 +842,13 @@
 61C:\Users\verit\vbro3124-tracker\node_modules\escalade\license133265129415629987 0
 80C:\Users\verit\vbro3124-tracker\node_modules\type-fest\source\tsconfig-json.d.ts133265129465876726 0
 58C:\Users\verit\vbro3124-tracker\node_modules\utility-types133265129452467045 1
-55C:\Users\verit\vbro3124-tracker\dist\public.0ba7c674.js133283325050098506 0
+55C:\Users\verit\vbro3124-tracker\dist\public.0ba7c674.js133289361161854503 0
 79C:\Users\verit\vbro3124-tracker\node_modules\@parcel\package-manager\index.d.ts133265129477618835 0
 58C:\Users\verit\vbro3124-tracker\node_modules\depd\index.js133240949073408000 0
 70C:\Users\verit\vbro3124-tracker\node_modules\iconv-lite\lib\index.d.ts133240949077129135 0
 79C:\Users\verit\vbro3124-tracker\node_modules\@parcel\optimizer-css\package.json133265129452637680 0
 117C:\Users\verit\vbro3124-tracker\node_modules\@parcel\optimizer-htmlnano\node_modules\svgo\plugins\_applyTransforms.js133265129451972022 0
 64C:\Users\verit\vbro3124-tracker\node_modules\svgo\lib\builtin.js133265129440368951 0
-56C:\Users\verit\vbro3124-tracker\node_modules\js-yaml\bin133265129450613998 1
-56C:\Users\verit\vbro3124-tracker\node_modules\utils-merge133240949074032051 1
 71C:\Users\verit\vbro3124-tracker\node_modules\@parcel\cache\lib\index.js133265129449764581 0
 119C:\Users\verit\vbro3124-tracker\node_modules\@parcel\package-manager\test\fixtures\has-a-not-yet-installed\package.json133265129472259075 0
 58C:\Users\verit\vbro3124-tracker\node_modules\@parcel\graph133265129458602417 1
@@ -1761,9 +1764,9 @@
 81C:\Users\verit\vbro3124-tracker\node_modules\css-tree\lib\syntax\node\Operator.js133265129498943271 0
 69C:\Users\verit\vbro3124-tracker\node_modules\source-map\lib\base64.js133265129432640686 0
 67C:\Users\verit\vbro3124-tracker\node_modules\msgpackr\dist\node.cjs133265129434008220 0
+87C:\Users\verit\vbro3124-tracker\node_modules\csso\node_modules\css-tree\data\patch.json133265129502269162 0
 89C:\Users\verit\vbro3124-tracker\node_modules\@parcel\optimizer-svgo\node_modules\svgo\bin133265129450085262 1
 76C:\Users\verit\vbro3124-tracker\node_modules\source-map\lib\binary-search.js133265129433797237 0
-87C:\Users\verit\vbro3124-tracker\node_modules\csso\node_modules\css-tree\data\patch.json133265129502269162 0
 82C:\Users\verit\vbro3124-tracker\node_modules\source-map\lib\source-map-consumer.js133265129440311794 0
 86C:\Users\verit\vbro3124-tracker\node_modules\caniuse-lite\data\features\user-timing.js133265129529831332 0
 61C:\Users\verit\vbro3124-tracker\node_modules\is-glob\index.js133265129419852803 0
@@ -2366,6 +2369,8 @@
 70C:\Users\verit\vbro3124-tracker\node_modules\msgpackr\dist\test.js.map133265129472259075 0
 63C:\Users\verit\vbro3124-tracker\node_modules\csso\lib\syntax.js133265129482965709 0
 94C:\Users\verit\vbro3124-tracker\node_modules\caniuse-lite\data\features\es6-string-includes.js133265129503966560 0
+77C:\Users\verit\vbro3124-tracker\node_modules\msgpackr\dist\unpack-no-eval.cjs133265129436568573 0
+78C:\Users\verit\vbro3124-tracker\node_modules\caniuse-lite\data\features\eot.js133265129503494441 0
 85C:\Users\verit\vbro3124-tracker\node_modules\dom-serializer\node_modules\entities\lib133265129461550731 1
 57C:\Users\verit\vbro3124-tracker\node_modules\ms\readme.md133240949074032051 0
 81C:\Users\verit\vbro3124-tracker\node_modules\dom-serializer\lib\foreignNames.d.ts133265129450294351 0
@@ -2734,9 +2739,6 @@
 86C:\Users\verit\vbro3124-tracker\node_modules\caniuse-lite\data\features\wbr-element.js133265129530873440 0
 85C:\Users\verit\vbro3124-tracker\node_modules\json-parse-even-better-errors\LICENSE.md133265129428147208 0
 84C:\Users\verit\vbro3124-tracker\node_modules\json-parse-even-better-errors\README.md133265129429676311 0
-111C:\Users\verit\vbro3124-tracker\node_modules\@parcel\optimizer-svgo\node_modules\mdn-data\css\units.schema.json133265129467808580 0
-57C:\Users\verit\vbro3124-tracker\node_modules\js-yaml\dist133265129464859027 1
-57C:\Users\verit\vbro3124-tracker\node_modules\is-json\test133265129432328718 1
 65C:\Users\verit\vbro3124-tracker\node_modules\js-yaml\package.json133265129463168532 0
 62C:\Users\verit\vbro3124-tracker\node_modules\js-yaml\README.md133265129464426405 0
 63C:\Users\verit\vbro3124-tracker\node_modules\js-yaml\lib\schema133265129455606783 1
@@ -4071,6 +4073,7 @@
 115C:\Users\verit\vbro3124-tracker\node_modules\css-select\node_modules\entities\lib\generated\decode-data-html.js.map133265129467282587 0
 74C:\Users\verit\vbro3124-tracker\node_modules\@swc\helpers\lib\_inherits.js133265129470998818 0
 116C:\Users\verit\vbro3124-tracker\node_modules\css-select\node_modules\entities\lib\generated\decode-data-xml.d.ts.map133265129468630501 0
+57C:\Users\verit\vbro3124-tracker\dist\Asset 1.175fe309.svg133289361163606870 0
 64C:\Users\verit\vbro3124-tracker\node_modules\.bin\node-gyp-build133265129538093032 0
 110C:\Users\verit\vbro3124-tracker\node_modules\css-select\node_modules\entities\lib\generated\decode-data-xml.js133265129455823628 0
 114C:\Users\verit\vbro3124-tracker\node_modules\css-select\node_modules\entities\lib\generated\decode-data-xml.js.map133265129469425358 0
@@ -4308,7 +4311,7 @@
 71C:\Users\verit\vbro3124-tracker\node_modules\cookie-signature\Readme.md133240949074428389 0
 62C:\Users\verit\vbro3124-tracker\node_modules\cookie\HISTORY.md133240949074318205 0
 79C:\Users\verit\vbro3124-tracker\node_modules\caniuse-lite\data\features\spdy.js133265129525873148 0
-59C:\Users\verit\vbro3124-tracker\dist\index.c74267d1.css.map133283325050734247 0
+59C:\Users\verit\vbro3124-tracker\dist\index.c74267d1.css.map133289362318752448 0
 59C:\Users\verit\vbro3124-tracker\node_modules\cookie\LICENSE133240949071850622 0
 63C:\Users\verit\vbro3124-tracker\node_modules\cookie\SECURITY.md133240949074920493 0
 76C:\Users\verit\vbro3124-tracker\node_modules\@parcel\workers\lib\Profiler.js133265129462281698 0
@@ -4455,7 +4458,7 @@
 82C:\Users\verit\vbro3124-tracker\node_modules\@parcel\utils\src\progress-message.js133265129479726219 0
 67C:\Users\verit\vbro3124-tracker\node_modules\browserslist\README.md133265129442265538 0
 76C:\Users\verit\vbro3124-tracker\node_modules\caniuse-lite\data\regions\KP.js133265129514473735 0
-47C:\Users\verit\vbro3124-tracker\dist\index.html133283325050098506 0
+47C:\Users\verit\vbro3124-tracker\dist\index.html133289361163606870 0
 92C:\Users\verit\vbro3124-tracker\node_modules\caniuse-lite\data\features\css-text-box-trim.js133265129498768068 0
 70C:\Users\verit\vbro3124-tracker\node_modules\@swc\helpers\src\_set.mjs133265129493747096 0
 121C:\Users\verit\vbro3124-tracker\node_modules\@parcel\optimizer-htmlnano\node_modules\css-tree\lib\syntax\config\walker.js133265129492058299 0
@@ -4468,7 +4471,6 @@
 88C:\Users\verit\vbro3124-tracker\node_modules\caniuse-lite\data\features\link-icon-svg.js133265129515195601 0
 76C:\Users\verit\vbro3124-tracker\node_modules\caniuse-lite\data\regions\LS.js133265129515921399 0
 76C:\Users\verit\vbro3124-tracker\node_modules\caniuse-lite\data\regions\LV.js133265129516161403 0
-92C:\Users\verit\vbro3124-tracker\node_modules\@swc\helpers\lib\_class_private_field_update.js133265129460729274 0
 76C:\Users\verit\vbro3124-tracker\node_modules\caniuse-lite\data\regions\MD.js133265129516802642 0
 76C:\Users\verit\vbro3124-tracker\node_modules\caniuse-lite\data\regions\ME.js133265129517123126 0
 61C:\Users\verit\vbro3124-tracker\node_modules\@swc\helpers\lib133265129483285629 1
@@ -4990,6 +4992,7 @@
 96C:\Users\verit\vbro3124-tracker\node_modules\@swc\helpers\lib\_class_private_field_loose_base.js133265129459425948 0
 102C:\Users\verit\vbro3124-tracker\node_modules\@parcel\runtime-js\lib\helpers\browser\import-polyfill.js133265129459703334 0
 95C:\Users\verit\vbro3124-tracker\node_modules\@swc\helpers\lib\_class_private_field_loose_key.js133265129459842304 0
+92C:\Users\verit\vbro3124-tracker\node_modules\@swc\helpers\lib\_class_private_field_update.js133265129460729274 0
 109C:\Users\verit\vbro3124-tracker\node_modules\@parcel\optimizer-svgo\node_modules\svgo\plugins\_collections.js133265129453243613 0
 90C:\Users\verit\vbro3124-tracker\node_modules\@swc\helpers\lib\_class_private_method_get.js133265129461225249 0
 91C:\Users\verit\vbro3124-tracker\node_modules\@swc\helpers\lib\_class_private_method_init.js133265129461683187 0
@@ -5166,7 +5169,7 @@
 89C:\Users\verit\vbro3124-tracker\node_modules\@parcel\watcher\src\macos\FSEventsBackend.hh133265129459889723 0
 88C:\Users\verit\vbro3124-tracker\node_modules\@parcel\watcher\src\linux\InotifyBackend.cc133265129448511331 0
 88C:\Users\verit\vbro3124-tracker\node_modules\@parcel\watcher\src\linux\InotifyBackend.hh133265129460788959 0
-55C:\Users\verit\vbro3124-tracker\dist\index.c74267d1.css133283325050654287 0
+55C:\Users\verit\vbro3124-tracker\dist\index.c74267d1.css133289362318700636 0
 83C:\Users\verit\vbro3124-tracker\node_modules\@parcel\watcher\prebuilds\darwin-arm64133265129466235256 1
 81C:\Users\verit\vbro3124-tracker\node_modules\@parcel\watcher\prebuilds\darwin-x64133265129469807705 1
 80C:\Users\verit\vbro3124-tracker\node_modules\@parcel\watcher\prebuilds\win32-x64133265129476793628 1
@@ -6356,8 +6359,9 @@
 58C:\Users\verit\vbro3124-tracker\node_modules\.bin\svgo.ps1133265129538093032 0
 56C:\Users\verit\vbro3124-tracker\node_modules\.bin\terser133265129538093032 0
 60C:\Users\verit\vbro3124-tracker\node_modules\.bin\terser.cmd133265129538093032 0
-54C:\Users\verit\vbro3124-tracker\dist\index.f3bd186e.js133283325051227329 0
-58C:\Users\verit\vbro3124-tracker\dist\index.f3bd186e.js.map133283325051335966 0
-59C:\Users\verit\vbro3124-tracker\dist\public.0ba7c674.js.map133283325050249394 0
+54C:\Users\verit\vbro3124-tracker\dist\index.f3bd186e.js133289361161854503 0
+58C:\Users\verit\vbro3124-tracker\dist\index.f3bd186e.js.map133289361161984631 0
+59C:\Users\verit\vbro3124-tracker\dist\public.0ba7c674.js.map133289361161984631 0
+68C:\Users\verit\vbro3124-tracker\dist\public.0ba7c674.js.map.25104.3e133289360759409600 0
 55C:\Users\verit\vbro3124-tracker\dist\style.83d9161e.css133265142375622911 0
 59C:\Users\verit\vbro3124-tracker\dist\style.83d9161e.css.map133265142375799615 0

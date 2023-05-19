@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 316.22 200.68">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: -.06em;
+      }
+
+      .cls-2 {
+        fill: #faf0d7;
+        font-family: Operetta18-ExtraLight, 'Operetta 18';
+        font-size: 100px;
+        font-weight: 200;
+      }
+
+      .cls-3 {
+        letter-spacing: 0em;
+      }
+
+      .cls-4 {
+        letter-spacing: -.01em;
+      }
+
+      .cls-5 {
+        letter-spacing: 0em;
+      }
+
+      .cls-6 {
+        fill: #414042;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <rect class="cls-6" width="316.22" height="200.68"/>
+    <text class="cls-2" transform="translate(42.91 131.6)"><tspan class="cls-1" x="0" y="0">A</tspan><tspan class="cls-5" x="61.9" y="0">t</tspan><tspan x="91.4" y="0">ti</tspan><tspan class="cls-4" x="146.65" y="0">r</tspan><tspan class="cls-3" x="184.3" y="0">e</tspan></text>
+  </g>
+</svg>

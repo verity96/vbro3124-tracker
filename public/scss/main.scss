@@ -7,6 +7,23 @@
     padding: 0;
 }
 
+html, body {
+    overflow-x: hidden;
+}
+
+header {
+    background-color: #FBF0D6;
+    img {
+        width: 110px;
+        margin: 10px 30px;
+    }
+    h1 {
+        font-size: 25px;
+        text-align: right;
+        padding: 30px 50px;
+    }
+}
+
 body {
     background-color: #F4AFCF;
 }
@@ -22,4 +39,12 @@ footer {
         color: white;
         margin: 20px;
     }
+}
+
+.no-padding {
+    padding: 0px;
+}
+
+.homePg-headers {
+    padding: 0.75em 0px;
 }
