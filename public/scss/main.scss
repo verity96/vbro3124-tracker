@@ -29,6 +29,12 @@ body {
     background-color: #F4AFCF;
 }
 
+main {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
 footer {
     background-color: #EB5B44;
     position: fixed;
@@ -48,4 +54,34 @@ footer {
 
 .homePg-headers {
     padding: 0.75em 0px;
+}
+
+.modal-box {
+    max-width: 1000px;
+    width: 100%;
+    border-radius: 24px;
+    background-color: white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+main.active .modal-box {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #FBF0D6;
+    padding: 20px 30px;
+    border-radius: 24px 24px 0px 0px;
 }

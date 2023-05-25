@@ -1,20 +1,9 @@
-// let task = {
-//     name: "White t-shirt",
-//     category: "Top",
-//     image: "",
-//     id: Date.now(),
-//     date: new Date().toISOString(),
-//     brand: "Levi's",
-//     size: "AU 6",
-//     colour: "White",
-//     materialOne: "blend",
-//     materialTwo: "cotton",
-//     cost: "25.00",
-//     season: "Summer",
-//     comfortRate: 4,
-//     fitRate: 5,
-//     wearCount: []
-// }
+const main = document.querySelector('main'),
+    showBtn = document.querySelector('.show-modal'),
+    closeBtn = document.querySelector('.close-btn');
+
+showBtn.addEventListener('click', () => main.classList.add("active"));
+closeBtn.addEventListener('click', () => main.classList.remove("active"));
 
 var taskList = [];
 

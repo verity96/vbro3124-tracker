@@ -5,16 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Attire</title>
-    <link rel="stylesheet" href="scss/main.scss" />
+    <link rel="stylesheet" href="scss/main.scss" /> <!-- External stylesheet -->
 </head>
 <body>
     <header>
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-9 col-xl-9 col-xxl-9 no-padding">
-                <img src="./Images/Asset 1.svg" alt="Attire logo image"/>
+                <img src="./Images/Asset 1.svg" alt="Attire logo image"/> <!-- Logo image -->
             </div>
             <div class="col-lg-3 col-xl-3 col-xxl-3 no-padding">
-                <h1>Hello gorgeous!</h1>
+                <h1>Hello gorgeous!</h1> <!-- Top right header text -->
             </div>
         </div>
     </header>
@@ -22,12 +22,13 @@
         <div class="container">
             <div class="row category-box">
                 <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
-                    <h1 class="homePg-headers">Categories</h1>
+                    <h1 class="homePg-headers">Categories</h1> <!-- Categories header -->
                     <div class="parent">
-                        <button type="submit" class="homePg-btn">
+                        <button type="submit" class="homePg-btn show-modal"> <!-- Tops category button -->
                             <img src="./Images/Tops.jpg" alt="Top icon with red circle"/>
                             TOPS
                         </button>
+                        <!-- Repeat the above button structure for other categories -->
                         <button type="submit" class="homePg-btn">
                             <img src="./Images/Dresses.jpg" alt="Dress icon with red circle"/>
                             DRESSES
@@ -75,15 +76,25 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-xl-6 col-xxl-6">
-                    <h1 class="homePg-headers">Wardrobe</h1>
+                    <h1 class="homePg-headers">Wardrobe</h1> <!-- Wardrobe header -->
+                    <!-- Add content for wardrobe section -->
                     
                 </div>
             </div>
         </div>
+        <div class="modal-box">
+            <div class="modal-header">
+                <h1 id="modal-category">TOPS</h1>
+                <button class="close-btn">X</button>
+            </div>
+            <div class="modal-body">
+
+            </div>
+        </div>
     </main>
     <footer>
-        <p>Copyright Verity 2023</p>
+        <p>Copyright Verity 2023</p> <!-- Footer text -->
     </footer>
-    <script src="script.js"></script>
+    <script src="script.js"></script> <!-- External JavaScript file -->
 </body>
 </html>
