@@ -325,6 +325,12 @@
         flex: 0 0 100%;
         max-width: 100%;
     }
+
+    #taskDisplay {
+        ul {
+            columns: 1;
+          }
+    }
 }
 
 /*Large screen size*/
@@ -399,6 +405,12 @@
     .col-lg-12 {
         flex: 0 0 100%;
         max-width: 100%;
+    }
+
+    #taskDisplay {
+        ul {
+            columns: 2;
+          }
     }
 }
 
@@ -553,8 +565,13 @@
     }
 }
 
+.column-spacing {
+    box-sizing: border-box;
+    padding: 0px 10px;
+}
+
 .category-box {
-    margin-top: 3rem;
+    margin-top: 1.5rem;
     padding: 0px 40px;
 }
 

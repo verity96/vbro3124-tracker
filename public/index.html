@@ -85,10 +85,112 @@
         <div class="modal-box">
             <div class="modal-header">
                 <h1 id="modal-category">TOPS</h1>
+                <button class="addItem-btn">Add Item</button>
                 <button class="close-btn">X</button>
             </div>
             <div class="modal-body">
-
+                <form id="taskForm">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 column-spacing">
+                            <label for="taskName">Item Name</label>
+                            <input type="text" name="taskName" id="taskName" required="true" />
+                            <br/>
+                            <label for="taskBrand">Brand</label>
+                            <input type="text" name="taskBrand" id="taskBrand" required="false" />
+                            <br/>
+                            <label for="taskSize">Size</label>
+                            <input type="text" name="taskSize" id="taskSize" required="false" />
+                            <br/>
+                            <label for="taskColour">Colour</label>
+                                <select id="taskColour" name="taskColour" required="true">
+                                    <option value="red">Red</option>
+                                    <option value="orange">Orange</option>
+                                    <option value="yellow">Yellow</option>
+                                    <option value="Green">Green</option>
+                                    <option value="blue">Blue</option>
+                                    <option value="navy">Navy</option>
+                                    <option value="purple">Purple</option>
+                                    <option value="brown">Brown</option>
+                                    <option value="black">Black</option>
+                                    <option value="White">White</option>
+                                </select>
+                            <br/>
+                            <div class="row">
+                                <div class="col-6 column-spacing">
+                                    <label for="taskMaterialOne">Material 1</label>
+                                        <select id="taskMaterialOne" name="taskMaterialOne" required="false">
+                                            <option value="cotton">Cotton</option>
+                                            <option value="bamboo">Bamboo</option>
+                                            <option value="polyester">Poylester</option>
+                                            <option value="rayon">Rayon</option>
+                                        </select>
+                                </div>
+                                <div class="col-6 column-spacing">
+                                    <label for="taskMaterialTwo">Material 2</label>
+                                        <select id="taskMaterialTwo" name="taskMaterialTwo" required="false">
+                                            <option value="cotton">Cotton</option>
+                                            <option value="bamboo">Bamboo</option>
+                                            <option value="polyester">Poylester</option>
+                                            <option value="rayon">Rayon</option>
+                                        </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 column-spacing">
+                            <label for="taskCost">Cost</label>
+                            <input type="number" name="taskCost" id="taskCost" required="false" />
+                            <br/>
+                            <label for="taskSeason">Season</label>
+                            <select id="taskSeason" name="taskSeason" required="false">
+                                <option value="summer">Summer</option>
+                                <option value="autumn">Autumn</option>
+                                <option value="winter">Winter</option>
+                                <option value="spring">Spring</option>
+                            </select>
+                            <br/>
+                            <label for="taskComfort">Comfort Rating</label>
+                                <input type="radio" name="taskComfort" id="taskComfort" value="1" required="false" />
+                                <label for="taskComfort">1</label>
+                                <input type="radio" name="taskComfort" id="taskComfort" value="2" required="false" />
+                                <label for="taskComfort">2</label>
+                                <input type="radio" name="taskComfort" id="taskComfort" value="3" required="false" />
+                                <label for="taskComfort">3</label>
+                                <input type="radio" name="taskComfort" id="taskComfort" value="4" required="false" />
+                                <label for="taskComfort">4</label>
+                                <input type="radio" name="taskComfort" id="taskComfort" value="5" required="false" />
+                                <label for="taskComfort">5</label>
+                            <br/>
+                            <label for="taskFit">Fit Rating</label>
+                                <input type="radio" name="taskFit" id="taskFit" value="1" required="false" />
+                                <label for="taskFit">1</label>
+                                <input type="radio" name="taskFit" id="taskFit" value="2" required="false" />
+                                <label for="taskFit">2</label>
+                                <input type="radio" name="taskFit" id="taskFit" value="3" required="false" />
+                                <label for="taskFit">3</label>
+                                <input type="radio" name="taskFit" id="taskFit" value="4" required="false" />
+                                <label for="taskFit">4</label>
+                                <input type="radio" name="taskFit" id="taskFit" value="5" required="false" />
+                                <label for="taskFit">5</label>
+                            <br/>
+                            <label for="taskImage">Image Upload</label>
+                            <input type="text" name="taskImage" id="taskImage" required="false" />
+                        </div>
+                    </div>
+                    <div class="row center-items">
+                        <div class="col-12">
+                            <input type="submit"/>
+                        </div>
+                    </div>
+                </form>
+                <div id="taskDisplay">
+                    <div class="row">
+                        <div class="col-12 column-spacing">
+                            <ul id="taskList">
+                                <!--Displays item cards-->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>

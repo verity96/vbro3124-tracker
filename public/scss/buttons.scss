@@ -9,17 +9,51 @@
 
 .homePg-btn:hover {
     background-color: #EB5B44;
-    color: #FBF0D6;
+    color: #ffffff;
     border: none;
     padding: 20px 0px;
     cursor: pointer;
 }
 
+.addItem-btn {
+    background-color: #EB5B44;
+    color: #ffffff;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: medium;
+    margin-left: auto;
+    margin-right: 10px;
+}
+
 .close-btn {
     background-color: #EB5B44;
-    color: #FBF0D6;
+    color: #ffffff;
     border: none;
     padding: 15px 20px;
     border-radius: 10px;
     cursor: pointer;
 }
+
+.addItem-btn:hover, .close-btn:hover {
+    background-color: #F4AFCF;
+    color: #414042;
+}
+
+.addItem-btn:active, .close-btn:active {
+    background-color: #414042;
+    color: #ffffff;
+    transform: translateY(4px);
+}
+
+input[type=submit] {
+    background-color: #EB5B44;
+    color: #ffffff;
+    border: none;
+    padding: 15px 40px !important;
+    margin-top: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
