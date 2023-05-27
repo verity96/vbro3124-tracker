@@ -583,9 +583,18 @@
     grid-column-gap: 10px;
     grid-row-gap: 10px;
     padding-right: 4rem;
-        img {
-            width: 60%;
-            height: auto;
-            padding: 0px 30px 5px 30px;
-        }
-    } 
+    img {
+        width: 60%;
+        height: auto;
+        padding: 0px 30px 5px 30px;
+    }
+} 
+
+#successfulAdd {
+    margin-bottom: 2rem;
+    img {
+        width: 3rem;
+        height: auto;
+        margin-bottom: 0.5rem;
+    }
+}

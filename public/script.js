@@ -1,11 +1,12 @@
 
 const form = document.getElementById('taskForm');
 const tasklistElem = document.querySelector('#taskList');
+const wardrobeElem = document.querySelector('#wardrobeList');
 
 form.addEventListener('submit', function(event) {
     //Block default submission behaviour
     event.preventDefault();
-    //console.log(form.elements.taskName.value)
+
     addTask(
         form.elements.taskName.value, 
         form.elements.taskBrand.value,
@@ -19,7 +20,6 @@ form.addEventListener('submit', function(event) {
         form.elements.taskFit.value,
         form.elements.taskImage.value
     )
-    //console.log(taskList);
 })
 
 function displayTask(task) {
@@ -31,7 +31,7 @@ function displayTask(task) {
                 <div class="col-9 column-spacing">
                     <h3> ${task.brand} </h3>
                     <p> ${task.name} </p>
-                    <p> ${task.wearCount} </p>
+                    <p class="wearcount"> Wears ${task.wearCount} </p>
                     <p> ${task.comfortRate} </p>
                 </div>
                 <div class="col-3 column-spacing">
@@ -40,7 +40,7 @@ function displayTask(task) {
             </div>
             <div class="row">
                 <div class="col-12">
-                    <a href="#"><p class="addWear-btn">ADD WEAR +</p></a>
+                    <button onclick="wearCounter()" type="button" class="addWear-btn">ADD WEAR +</button>
                 </div>
             </div>
         </div>
@@ -64,6 +64,42 @@ function displayTask(task) {
 
 }
 
+function displayWardrobe(task) {
+    let wardrobeItem = document.createElement('li');
+    wardrobeItem.setAttribute('data-id', task.id);
+    wardrobeItem.innerHTML = `
+        <div class="card">
+            <div class="row">
+                <div class="col-9 column-spacing">
+                    <h3> ${task.brand} </h3>
+                    <p> ${task.name} </p>
+                    <p class="wearcount"> Wears ${task.wearCount} </p>
+                    <p> ${task.comfortRate} </p>
+                </div>
+                <div class="col-3 column-spacing">
+                    <img src="${task.image}" alt="Image of garment" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <button onclick="wearCounter()" type="button" class="addWear-btn">ADD WEAR +</button>
+                </div>
+            </div>
+        </div>
+    `;
+    wardrobeElem.appendChild(wardrobeItem);
+
+}
+
+function wearCounter() {
+    if (localStorage.wearcount) {
+      localStorage.wearcount = Number(localStorage.wearcount)+1;
+    } else {
+      localStorage.wearcount = 1;
+    }
+    document.querySelector(".wearcount").innerHTML = "Wears " + localStorage.wearcount;
+  }
+
 var taskList = [];
 
 function addTask(name,  brand, size, colour, materialOne, materialTwo, cost, season, comfortRate, fitRate, image, category) {
@@ -80,13 +116,12 @@ function addTask(name,  brand, size, colour, materialOne, materialTwo, cost, sea
         season: season,
         comfortRate: comfortRate,
         fitRate: fitRate,
-        image: image,
-        wearCount: [],
-        category: category
+        image: image
     }
 
     taskList.push(task);
     displayTask(task);
+    displayWardrobe(task);
 }
 
 addTask("Flower dress", "H&M", "AU 6", "Pink", "Cotton", "Cotton", "69.99","Summer", 3, 4, "image.png", "Dresses");

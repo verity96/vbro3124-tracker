@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Attire</title>
     <link rel="stylesheet" href="scss/main.scss" /> <!-- External stylesheet -->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -25,60 +26,61 @@
                     <h1 class="homePg-headers">Categories</h1> <!-- Categories header -->
                     <div class="parent">
                         <button type="submit" class="homePg-btn show-modal"> <!-- Tops category button -->
-                            <img src="./Images/Tops.jpg" alt="Top icon with red circle"/>
+                            <img src="./Images/Tops.svg" alt="Top icon with red circle"/>
                             TOPS
                         </button>
                         <!-- Repeat the above button structure for other categories -->
                         <button type="submit" class="homePg-btn">
-                            <img src="./Images/Dresses.jpg" alt="Dress icon with red circle"/>
+                            <img src="./Images/Dresses.svg" alt="Dress icon with red circle"/>
                             DRESSES
                         </button>
                         <button type="submit" class="homePg-btn">
-                            <img src="./Images/Shoes.jpg" alt="Shoe icon with red circle"/>
+                            <img src="./Images/Shoes.svg" alt="Shoe icon with red circle"/>
                             SHOES
                         </button>
                         <button type="submit" class="homePg-btn">
-                            <img src="./Images/Accessories.jpg" alt="Sunglasses icon with red circle"/>
+                            <img src="./Images/Accessories.svg" alt="Sunglasses icon with red circle"/>
                             ACCESSORIES
                         </button>
                         <button type="submit" class="homePg-btn">
-                            <img src="./Images/Skirts.jpg" alt="Skirt icon with red circle"/>
+                            <img src="./Images/Skirts.svg" alt="Skirt icon with red circle"/>
                             SKIRTS
                         </button>
                         <button type="submit" class="homePg-btn">
-                            <img src="./Images/Pants.jpg" alt="Pants icon with red circle"/>
+                            <img src="./Images/Pants.svg" alt="Pants icon with red circle"/>
                             PANTS
                         </button>
                         <button type="submit" class="homePg-btn">
-                            <img src="./Images/Outerwear.jpg" alt="Jacket icon with red circle"/>
+                            <img src="./Images/Outerwear.svg" alt="Jacket icon with red circle"/>
                             OUTERWEAR
                         </button>
                         <button type="submit" class="homePg-btn">
-                            <img src="./Images/Pyjamas.jpg" alt="Pyjamas icon with red circle"/>
+                            <img src="./Images/Pyjamas.svg" alt="Pyjamas icon with red circle"/>
                             PYJAMAS
                         </button>
                         <button type="submit" class="homePg-btn">
-                            <img src="./Images/Shirts.jpg" alt="Shirt icon with red circle"/>
+                            <img src="./Images/Shirts.svg" alt="Shirt icon with red circle"/>
                             SHIRTS
                         </button>
                         <button type="submit" class="homePg-btn">
-                            <img src="./Images/Jumpsuits.jpg" alt="Jumpsuit icon with red circle"/>
+                            <img src="./Images/Jumpsuit.svg" alt="Jumpsuit icon with red circle"/>
                             JUMPSUITS
                         </button>
                         <button type="submit" class="homePg-btn">
-                            <img src="./Images/Underwear.jpg" alt="Bra icon with red circle"/>
+                            <img src="./Images/Underwear.svg" alt="Bra icon with red circle"/>
                             UNDERWEAR
                         </button>
                         <button type="submit" class="homePg-btn">
-                            <img src="./Images/Other.jpg" alt= "Question mark icon with red circle"/>
+                            <img src="./Images/Other.svg" alt= "Question mark icon with red circle"/>
                             OTHER
                         </button>
                     </div>
                 </div>
-                <div class="col-lg-6 col-xl-6 col-xxl-6">
+                <div id="wardrobeDisplay" class="col-lg-6 col-xl-6 col-xxl-6">
                     <h1 class="homePg-headers">Wardrobe</h1> <!-- Wardrobe header -->
-                    <!-- Add content for wardrobe section -->
-                    
+                    <ul id="wardrobeList">
+                        <!--Displays item cards-->
+                    </ul>
                 </div>
             </div>
         </div>
@@ -148,29 +150,33 @@
                                 <option value="spring">Spring</option>
                             </select>
                             <br/>
-                            <label for="taskComfort">Comfort Rating</label>
-                                <input type="radio" name="taskComfort" id="taskComfort" value="1" required="false" />
-                                <label for="taskComfort">1</label>
-                                <input type="radio" name="taskComfort" id="taskComfort" value="2" required="false" />
-                                <label for="taskComfort">2</label>
-                                <input type="radio" name="taskComfort" id="taskComfort" value="3" required="false" />
-                                <label for="taskComfort">3</label>
-                                <input type="radio" name="taskComfort" id="taskComfort" value="4" required="false" />
-                                <label for="taskComfort">4</label>
-                                <input type="radio" name="taskComfort" id="taskComfort" value="5" required="false" />
-                                <label for="taskComfort">5</label>
+                            <label class="inputHeading" for="taskComfort">Comfort Rating</label>
+                                <div class="rate">
+                                    <!--<input type="radio" name="taskComfort" id="taskComfort" value="1" />
+                                    <label for="taskComfort"></label>
+                                    <input type="radio" name="taskComfort" id="taskComfort" value="2" />
+                                    <label for="taskComfort"></label>
+                                    <input type="radio" name="taskComfort" id="taskComfort" value="3" />
+                                    <label for="taskComfort"></label>
+                                    <input type="radio" name="taskComfort" id="taskComfort" value="4" />
+                                    <label for="taskComfort"></label>
+                                    <input type="radio" name="taskComfort" id="taskComfort" value="5" />
+                                    <label for="taskComfort"></label>-->
+                                </div>
                             <br/>
                             <label for="taskFit">Fit Rating</label>
-                                <input type="radio" name="taskFit" id="taskFit" value="1" required="false" />
-                                <label for="taskFit">1</label>
-                                <input type="radio" name="taskFit" id="taskFit" value="2" required="false" />
-                                <label for="taskFit">2</label>
-                                <input type="radio" name="taskFit" id="taskFit" value="3" required="false" />
-                                <label for="taskFit">3</label>
-                                <input type="radio" name="taskFit" id="taskFit" value="4" required="false" />
-                                <label for="taskFit">4</label>
-                                <input type="radio" name="taskFit" id="taskFit" value="5" required="false" />
-                                <label for="taskFit">5</label>
+                                <div class="rate">
+                                    <input type="radio" name="taskFit" id="taskFit" value="1" required="false" />
+                                    <label for="taskFit"></label>
+                                    <input type="radio" name="taskFit" id="taskFit" value="2" required="false" />
+                                    <label for="taskFit"></label>
+                                    <input type="radio" name="taskFit" id="taskFit" value="3" required="false" />
+                                    <label for="taskFit"></label>
+                                    <input type="radio" name="taskFit" id="taskFit" value="4" required="false" />
+                                    <label for="taskFit"></label>
+                                    <input type="radio" name="taskFit" id="taskFit" value="5" required="false" />
+                                    <label for="taskFit"></label>
+                                </div>
                             <br/>
                             <label for="taskImage">Image Upload</label>
                             <input type="text" name="taskImage" id="taskImage" required="false" />
@@ -185,6 +191,11 @@
                 <div id="taskDisplay">
                     <div class="row">
                         <div class="col-12 column-spacing">
+                            <div id="successfulAdd" class="center-items">
+                                <img src="./Images/Asset 27.svg" alt= "Green check mark in circle"/>
+                                <h3>Success!</h3>
+                                <p>Your new item has been added.</p>
+                            </div>
                             <ul id="taskList">
                                 <!--Displays item cards-->
                             </ul>
