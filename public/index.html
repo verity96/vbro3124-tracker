@@ -86,7 +86,7 @@
         </div>
         <div class="modal-box">
             <div class="modal-header">
-                <h1 id="modal-category">TOPS</h1>
+                <h1 id="modal-category">TOPS</h1> <!--TODO: Categories, make titles dynamic and store value with item objects-->
                 <button class="addItem-btn">Add Item</button>
                 <button class="close-btn">X</button>
             </div>
@@ -151,35 +151,35 @@
                             </select>
                             <br/>
                             <label class="inputHeading" for="taskComfort">Comfort Rating</label>
-                                <div class="rate">
-                                    <!--<input type="radio" name="taskComfort" id="taskComfort" value="1" />
-                                    <label for="taskComfort"></label>
-                                    <input type="radio" name="taskComfort" id="taskComfort" value="2" />
-                                    <label for="taskComfort"></label>
-                                    <input type="radio" name="taskComfort" id="taskComfort" value="3" />
-                                    <label for="taskComfort"></label>
-                                    <input type="radio" name="taskComfort" id="taskComfort" value="4" />
-                                    <label for="taskComfort"></label>
-                                    <input type="radio" name="taskComfort" id="taskComfort" value="5" />
-                                    <label for="taskComfort"></label>-->
-                                </div>
+                                <fieldset class="rate">
+                                    <input type="radio" name="taskComfort" id="taskComfort5" value="5" />
+                                    <label for="taskComfort5"></label>
+                                    <input type="radio" name="taskComfort" id="taskComfort4" value="4" />
+                                    <label for="taskComfort4"></label>
+                                    <input type="radio" name="taskComfort" id="taskComfort3" value="3" />
+                                    <label for="taskComfort3"></label>
+                                    <input type="radio" name="taskComfort" id="taskComfort2" value="2" />
+                                    <label for="taskComfort2"></label>
+                                    <input type="radio" name="taskComfort" id="taskComfort1" value="1" />
+                                    <label for="taskComfort1"></label>
+                                </fieldset>
                             <br/>
                             <label for="taskFit">Fit Rating</label>
-                                <div class="rate">
-                                    <input type="radio" name="taskFit" id="taskFit" value="1" required="false" />
-                                    <label for="taskFit"></label>
-                                    <input type="radio" name="taskFit" id="taskFit" value="2" required="false" />
-                                    <label for="taskFit"></label>
-                                    <input type="radio" name="taskFit" id="taskFit" value="3" required="false" />
-                                    <label for="taskFit"></label>
-                                    <input type="radio" name="taskFit" id="taskFit" value="4" required="false" />
-                                    <label for="taskFit"></label>
-                                    <input type="radio" name="taskFit" id="taskFit" value="5" required="false" />
-                                    <label for="taskFit"></label>
-                                </div>
+                                <fieldset class="rate">
+                                    <input type="radio" name="taskFit" id="taskFit5" value="5" />
+                                    <label for="taskFit5"></label>
+                                    <input type="radio" name="taskFit" id="taskFit4" value="4" />
+                                    <label for="taskFit4"></label>
+                                    <input type="radio" name="taskFit" id="taskFit3" value="3" />
+                                    <label for="taskFit3"></label>
+                                    <input type="radio" name="taskFit" id="taskFit2" value="2" />
+                                    <label for="taskFit2"></label>
+                                    <input type="radio" name="taskFit" id="taskFit1" value="1" />
+                                    <label for="taskFit1"></label>
+                                </fieldset>
                             <br/>
                             <label for="taskImage">Image Upload</label>
-                            <input type="text" name="taskImage" id="taskImage" required="false" />
+                            <input name="taskImage" id="taskImage" type="file" />
                         </div>
                     </div>
                     <div class="row center-items">
@@ -191,6 +191,7 @@
                 <div id="taskDisplay">
                     <div class="row">
                         <div class="col-12 column-spacing">
+                            <!--TODO: Add validation when submitting form to show checkmark-->
                             <div id="successfulAdd" class="center-items">
                                 <img src="./Images/Asset 27.svg" alt= "Green check mark in circle"/>
                                 <h3>Success!</h3>
@@ -201,6 +202,9 @@
                             </ul>
                         </div>
                     </div>
+                </div>
+                <div id="fullItemDisplay">
+                    <!--TODO: Create section to show all item details. What is the best way to do this?-->
                 </div>
             </div>
         </div>

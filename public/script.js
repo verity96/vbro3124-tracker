@@ -24,6 +24,33 @@ form.addEventListener('submit', function(event) {
 
 function displayTask(task) {
     let item = document.createElement('li');
+
+    // TODO: DON'T KNOW WHERE TO PUT THIS!! or should I use another method? For displaying purposes
+   /* let starComfort = task.comfortRate;
+        var starsComfort;
+        switch (starComfort) {
+        case "1" :
+        starsComfort = "★";
+        ;
+        case "2" :
+        starsComfort = "★★";
+        ;
+        case "3" :
+        starsComfort = "★★★";
+        ;
+        case "4" :
+        starsComfort = "★★★★";
+        ;
+        case "5" :
+        starsComfort = "★★★★★";
+        ;
+        default :
+        alert("No rating available");
+        ;
+        }
+        console.log(starsComfort);
+        break */
+
     item.setAttribute('data-id', task.id);
     item.innerHTML = `
         <div class="card">
@@ -35,7 +62,7 @@ function displayTask(task) {
                     <p> ${task.comfortRate} </p>
                 </div>
                 <div class="col-3 column-spacing">
-                    <img src="${task.image}" alt="Image of garment" />
+                    <img src="img-dest" class="img-dest" alt="Image of garment" /> 
                 </div>
             </div>
             <div class="row">
@@ -44,7 +71,7 @@ function displayTask(task) {
                 </div>
             </div>
         </div>
-    `;
+    `; // TODO: Need to generate unique ID for the wearCount ^
     tasklistElem.appendChild(item);
     form.reset();
 
@@ -73,11 +100,11 @@ function displayWardrobe(task) {
                 <div class="col-9 column-spacing">
                     <h3> ${task.brand} </h3>
                     <p> ${task.name} </p>
-                    <p class="wearcount"> Wears ${task.wearCount} </p>
+                    <p id="wearcount"> Wears ${task.wearCount} </p>
                     <p> ${task.comfortRate} </p>
                 </div>
                 <div class="col-3 column-spacing">
-                    <img src="${task.image}" alt="Image of garment" />
+                    <img id="img-dest" class="img-dest" alt="Image of garment"></img>
                 </div>
             </div>
             <div class="row">
@@ -91,15 +118,53 @@ function displayWardrobe(task) {
 
 }
 
+
+/*TODO: Images not showing up on item card display.
+        base64 is logging in console
+        Error msg: */
+// Get the image input and destination elements
+const imgInput = document.getElementById("taskImage");
+const imgDest = document.getElementById("img-dest");
+
+// Add a 'change' event listener to the image input element
+imgInput.addEventListener("change", function (event) {
+  // Create a new FileReader instance
+  var reader = new FileReader();
+
+  // Get the first selected file from the input event (the image)
+  var selectedFile = event.target.files[0];
+
+  // Set up the FileReader's 'onloadend' event handler
+  reader.onloadend = function (e) {
+    // Get the base64 representation of the image from the event target result
+    var base64 = e.target.result;
+    
+    // Log the base64 data to the console
+    console.log(base64);
+    
+    // Store the base64 image data in localStorage with the key 'imgData'
+    localStorage.setItem("imgData", base64);
+    
+    // Set the destination element's src attribute to the base64 data to display the uploaded image
+    imgDest.src = base64;
+  };
+
+  // Read the uploaded image as a Data URL (Base64 encoded string)
+  reader.readAsDataURL(selectedFile);
+});
+
+
+// TODO: Only storing once in localStorage. All buttons for new items only add to first wearCount
 function wearCounter() {
     if (localStorage.wearcount) {
       localStorage.wearcount = Number(localStorage.wearcount)+1;
     } else {
       localStorage.wearcount = 1;
     }
-    document.querySelector(".wearcount").innerHTML = "Wears " + localStorage.wearcount;
+    document.querySelector("#wearcount").innerHTML = "Wears " + localStorage.wearcount;
   }
 
+  //TODO: How does local storage work with this code?
 var taskList = [];
 
 function addTask(name,  brand, size, colour, materialOne, materialTwo, cost, season, comfortRate, fitRate, image, category) {

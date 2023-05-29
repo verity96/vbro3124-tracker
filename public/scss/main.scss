@@ -9,7 +9,6 @@
 
 html, body {
     overflow-x: hidden;
-    margin-bottom: 4rem;
 }
 
 header {
@@ -27,6 +26,7 @@ header {
 
 body {
     background-color: #F4AFCF;
+    margin-bottom: 4rem;
 }
 
 main {
@@ -142,8 +142,6 @@ main.active .modal-box {
     }
     input[type=submit] {
         font-size: medium;
-    }
-    input[type=radio], input[type=submit] {
         width: auto;
     }
 }
@@ -220,11 +218,11 @@ main.active .modal-box {
     padding: 15px 15px 0px 15px;
     box-sizing: border-box;
     border-radius: 10px;
-  }
+}
   
-  .card:hover {
+.card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  }
+}
 
 .center-items {
     justify-content: center;
@@ -232,22 +230,43 @@ main.active .modal-box {
     text-align: center;
 }
 
+.img-dest {
+    display: block;
+    width:400px;
+    margin-top:20px;
+}
+
+fieldset {
+    width: 100%;
+}
+
 .rate {
-    height: 1.75rem;
-    padding: 0 10px;
+    border: none;
+    margin: 0px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: left;
 }
+
+.rate > input {
+    display: none;
+}
+
 .rate:not(:checked) > input {
-    position:absolute;
-    top:-9999px;
+    position: absolute;
+    top: -9999px;
 }
+
 .rate:not(:checked) > label {
-    width:1em;
-    overflow:hidden;
-    white-space:nowrap;
-    cursor:pointer;
-    font-size:30px;
-    color:#ccc;
-}
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 30px;
+    color: #ccc;
+    margin: 0 !important;
+ }
+
 .rate:not(:checked) > label:before {
     content: '★ ';
 }
@@ -265,4 +284,3 @@ main.active .modal-box {
 .rate > label:hover ~ input:checked ~ label {
     color: #F4AFCF;
 }
-
