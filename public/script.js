@@ -2,11 +2,13 @@
 const form = document.getElementById('taskForm');
 const tasklistElem = document.querySelector('#taskList');
 const wardrobeElem = document.querySelector('#wardrobeList');
+const itemElem = document.querySelector('#itemList');
+const successMessage = document.querySelector('#successfulAdd');
 
 form.addEventListener('submit', function(event) {
     //Block default submission behaviour
     event.preventDefault();
-
+    successMessage.classList.add('show');
     addTask(
         form.elements.taskName.value, 
         form.elements.taskBrand.value,
@@ -26,43 +28,55 @@ function displayTask(task) {
     let item = document.createElement('li');
 
     // TODO: DON'T KNOW WHERE TO PUT THIS!! or should I use another method? For displaying purposes
-   /* let starComfort = task.comfortRate;
-        var starsComfort;
-        switch (starComfort) {
+        /*switch (task.comfortRate) {
         case "1" :
-        starsComfort = "★";
+            return "★";
         ;
         case "2" :
-        starsComfort = "★★";
+            return "★★";
         ;
         case "3" :
-        starsComfort = "★★★";
+            return "★★★";
         ;
         case "4" :
-        starsComfort = "★★★★";
+            return "★★★★";
         ;
         case "5" :
-        starsComfort = "★★★★★";
+            return "★★★★★";
         ;
         default :
-        alert("No rating available");
+            return "No rating available";
         ;
         }
-        console.log(starsComfort);
-        break */
+        console.log(task.comfortRate);*/
+
+    /*let comfortRating = document.getElementById('comfortStar');
+        if (comfortRating == 1) {
+            comfortRating.innerHTML = "★";
+        } else if (comfortRating == 2) {
+            comfortRating.innerHTML = "★★";
+        } else if (comfortRating == 3) {
+            comfortRating.innerHTML = "★★★";
+        } else if (comfortRating == 4) {
+            comfortRating.innerHTML = "★★★★";
+        } else if (comfortRating == 5) {
+            comfortRating.innerHTML = "★★★★★";
+        } else {
+            comfortRating.innerHTML = "No rating available.";
+        };*/ 
 
     item.setAttribute('data-id', task.id);
     item.innerHTML = `
         <div class="card">
             <div class="row">
-                <div class="col-9 column-spacing">
+                <div class="col-8 column-spacing">
                     <h3> ${task.brand} </h3>
                     <p> ${task.name} </p>
-                    <p class="wearcount"> Wears ${task.wearCount} </p>
-                    <p> ${task.comfortRate} </p>
+                    <p id="wearcount"> Wears ${task.wearCount} </p>
+                    <p id="comfortStar"> ${task.comfortRate} </p>
                 </div>
-                <div class="col-3 column-spacing">
-                    <img src="img-dest" class="img-dest" alt="Image of garment" /> 
+                <div class="col-4 column-spacing">
+                    <img src="img-dest" class="img-dest" alt="Image of ${task.name}" /> 
                 </div>
             </div>
             <div class="row">
@@ -75,20 +89,6 @@ function displayTask(task) {
     tasklistElem.appendChild(item);
     form.reset();
 
-    let delButton = document.createElement('button');
-    let delButtonText = document.createTextNode('Delete');
-    delButton.appendChild(delButtonText);
-    item.appendChild(delButton);
-
-    delButton.addEventListener('click', function(event) {
-        item.remove();
-        taskList.forEach(function(taskArrayElement, taskArrayIndex) {
-            if (taskArrayElement.id == item.getAttribute('data-id')) {
-                taskList.splice(taskArrayIndex, 1);
-            }
-        })
-    })
-
 }
 
 function displayWardrobe(task) {
@@ -97,14 +97,14 @@ function displayWardrobe(task) {
     wardrobeItem.innerHTML = `
         <div class="card">
             <div class="row">
-                <div class="col-9 column-spacing">
+                <div class="col-8 column-spacing">
                     <h3> ${task.brand} </h3>
                     <p> ${task.name} </p>
                     <p id="wearcount"> Wears ${task.wearCount} </p>
                     <p> ${task.comfortRate} </p>
                 </div>
-                <div class="col-3 column-spacing">
-                    <img id="img-dest" class="img-dest" alt="Image of garment"></img>
+                <div class="col-4 column-spacing">
+                    <img id="img-dest" class="img-dest" alt="Image of ${task.name}"></img>
                 </div>
             </div>
             <div class="row">
@@ -118,10 +118,55 @@ function displayWardrobe(task) {
 
 }
 
+function displayItem(task) {
+    let itemDetails = document.createElement('li');
+    itemDetails.setAttribute('data-id', task.id);
+    itemDetails.innerHTML = `
+        <div class="row">
+            <div class="col-7 column-spacing">
+                <h2> ${task.name} </h2>
+                <p id="wearcount" class="itemWears"> Wears: ${task.wearCount} </p>
+                <p> Brand: ${task.brand} </p>
+                <p> Size: ${task.size} </p>
+                <p> Colour: ${task.colour} </p>
+                <p> Material 1: ${task.materialOne} </p>
+                <p> Material 2: ${task.materialTwo} </p>
+                <p> Cost: $${task.cost} </p>
+                <p> Season: ${task.season} </p>
+                <p> Comfort Rating: ${task.comfortRate} </p>
+                <p> Fit Rating: ${task.fitRate} </p>
+            </div>
+            <div class="col-5 column-spacing">
+                <img src="img-dest" class="img-dest" alt="Image of ${task.name}" /> 
+            </div>
+        </div>
+    `;
+    itemElem.appendChild(itemDetails);
+
+    //TODO: Only deleting detailed item not from category or wardrobe list
+    let delButton = document.createElement('button');
+    let delButtonText = document.createTextNode('Delete');
+    delButton.setAttribute('class', 'deleteButton');
+    delButton.appendChild(delButtonText);
+    itemDetails.appendChild(delButton);
+
+    delButton.addEventListener('click', function(event) {
+        itemDetails.remove();
+        taskList.forEach(function(taskArrayElement, taskArrayIndex) {
+            if (taskArrayElement.id == item.getAttribute('data-id')) {
+                taskList.splice(taskArrayIndex, 1);
+            }
+        })
+    })
+
+}
+
 
 /*TODO: Images not showing up on item card display.
         base64 is logging in console
-        Error msg: */
+        Uncaught TypeError: Cannot set properties of null (setting 'src') at reader.onloadend (script.js:149:16)*/
+
+
 // Get the image input and destination elements
 const imgInput = document.getElementById("taskImage");
 const imgDest = document.getElementById("img-dest");
@@ -164,6 +209,24 @@ function wearCounter() {
     document.querySelector("#wearcount").innerHTML = "Wears " + localStorage.wearcount;
   }
 
+
+  //Showing and hiding different elements
+const myElement = document.getElementById("taskForm");
+const showButton = document.getElementById("showElement");
+const hideButton = document.getElementById("hideElement");
+
+function showElement() {
+  myElement.classList.remove("hidden");
+}
+
+function hideElement() {
+  myElement.classList.add("hidden");
+}
+
+// Attach event listeners
+showButton.addEventListener("click", showElement);
+hideButton.addEventListener("click", hideElement);
+
   //TODO: How does local storage work with this code?
 var taskList = [];
 
@@ -181,15 +244,17 @@ function addTask(name,  brand, size, colour, materialOne, materialTwo, cost, sea
         season: season,
         comfortRate: comfortRate,
         fitRate: fitRate,
-        image: image
+        image: image,
+        category: category
     }
 
     taskList.push(task);
     displayTask(task);
     displayWardrobe(task);
+    displayItem(task);
 }
 
-addTask("Flower dress", "H&M", "AU 6", "Pink", "Cotton", "Cotton", "69.99","Summer", 3, 4, "image.png", "Dresses");
+addTask("Flower dress", "H&M", "AU 6", "Pink", "Cotton", "Cotton", "69.99","Summer", 3, 4, "./Images/Asset 1.svg", "Dresses");
 console.log(taskList);
 
 
@@ -199,4 +264,7 @@ const main = document.querySelector('main'),
     closeBtn = document.querySelector('.close-btn');
 
 showBtn.addEventListener('click', () => main.classList.add("active"));
-closeBtn.addEventListener('click', () => main.classList.remove("active"));
+closeBtn.addEventListener('click', () => 
+//TODO: How can I remove success message at same time as closing the modal?? successMessage.classList.remove("show"),
+main.classList.remove("active")
+);
