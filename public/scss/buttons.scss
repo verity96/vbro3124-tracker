@@ -36,14 +36,14 @@
     cursor: pointer;
 }
 
-.addItem-btn:hover, .close-btn:hover {
-    background-color: #F4AFCF;
-    color: #414042;
-}
-
-.addItem-btn:active, .close-btn:active {
+.addItem-btn:hover, .close-btn:hover, .deleteButton:hover {
     background-color: #414042;
     color: #ffffff;
+}
+
+.addItem-btn:active, .close-btn:active, .deleteButton:active {
+    background-color: #F4AFCF;
+    color: #414042;
     transform: translateY(4px);
 }
 
@@ -56,4 +56,17 @@ input[type=submit] {
     border-radius: 10px;
     cursor: pointer;
 }
+
+.deleteButton {
+    background-color: #EB5B44;
+    color: #ffffff;
+    border: none;
+    padding: 15px 40px !important;
+    margin-top: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+}
+
+
 

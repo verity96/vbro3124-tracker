@@ -334,6 +334,30 @@
     }
 }
 
+@media (max-width: 992px) {
+    #wardrobeDisplay {
+        display: none;
+    }
+
+    header {
+        h1 {
+            display: none;
+        }
+    }
+
+    .container {
+        padding-bottom: 12rem;
+    }
+
+    .parent {
+        padding: 0px !important;
+    }
+
+    .modal-box {
+        max-width: 90% !important;
+    }
+}
+
 /*Large screen size*/
 @media (min-width: 992px) {
     .col-lg {

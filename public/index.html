@@ -30,6 +30,7 @@
                             TOPS
                         </button>
                         <!-- Repeat the above button structure for other categories -->
+                        <!--TODO: Get modal working for other buttons with categories-->
                         <button type="submit" class="homePg-btn">
                             <img src="./Images/Dresses.svg" alt="Dress icon with red circle"/>
                             DRESSES
@@ -79,7 +80,7 @@
                 <div id="wardrobeDisplay" class="col-lg-6 col-xl-6 col-xxl-6">
                     <h1 class="homePg-headers">Wardrobe</h1> <!-- Wardrobe header -->
                     <ul id="wardrobeList">
-                        <!--Displays item cards-->
+                        <!--Displays item cards wardrobe home page-->
                     </ul>
                 </div>
             </div>
@@ -87,11 +88,11 @@
         <div class="modal-box">
             <div class="modal-header">
                 <h1 id="modal-category">TOPS</h1> <!--TODO: Categories, make titles dynamic and store value with item objects-->
-                <button class="addItem-btn">Add Item</button>
+                <button id="showElement" class="addItem-btn">Add Item</button>
                 <button class="close-btn">X</button>
             </div>
             <div class="modal-body">
-                <form id="taskForm">
+                <form id="taskForm" class="hidden">
                     <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 column-spacing">
                             <label for="taskName">Item Name</label>
@@ -184,27 +185,29 @@
                     </div>
                     <div class="row center-items">
                         <div class="col-12">
-                            <input type="submit"/>
+                            <input type="submit" id="hideElement"/>
                         </div>
                     </div>
                 </form>
                 <div id="taskDisplay">
                     <div class="row">
                         <div class="col-12 column-spacing">
-                            <!--TODO: Add validation when submitting form to show checkmark-->
-                            <div id="successfulAdd" class="center-items">
+                            <div id="successfulAdd" class="center-items success_text">
                                 <img src="./Images/Asset 27.svg" alt= "Green check mark in circle"/>
                                 <h3>Success!</h3>
                                 <p>Your new item has been added.</p>
                             </div>
                             <ul id="taskList">
-                                <!--Displays item cards-->
+                                <!--Displays item cards in modal-->
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div id="fullItemDisplay">
-                    <!--TODO: Create section to show all item details. What is the best way to do this?-->
+                <!--TODO: Show item when card is clicked and hide all else-->
+                <div id="itemDisplay" class="hidden">
+                    <ul id="itemList">
+                        <!--Displays single item with all details-->
+                    </ul>
                 </div>
             </div>
         </div>

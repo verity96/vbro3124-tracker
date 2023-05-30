@@ -84,6 +84,7 @@ body::-webkit-scrollbar {
     pointer-events: none;
     transition: all 0.3s ease;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .modal-box::-webkit-scrollbar {
@@ -207,6 +208,15 @@ main.active .modal-box {
             width: 100%;
             text-align: left;
         }
+        .addWear-btn:hover {
+            color: #414042;
+            background-color: #FBF0D6;
+        }
+        
+        .addWear-btn:active {
+            color: #414042;
+            background-color: #C7EBC1;
+        }
     }
 }
 
@@ -218,6 +228,7 @@ main.active .modal-box {
     padding: 15px 15px 0px 15px;
     box-sizing: border-box;
     border-radius: 10px;
+    cursor: pointer;
 }
   
 .card:hover {
@@ -283,4 +294,34 @@ fieldset {
 .rate > input:checked ~ label:hover ~ label,
 .rate > label:hover ~ input:checked ~ label {
     color: #F4AFCF;
+}
+
+#itemDisplay{
+    padding: 2rem 5rem;
+    .itemWears {
+        width: max-content;
+        background-color: #FBF0D6;
+        margin-bottom: 5px;
+        padding: 5px 10px;
+    }
+    li {
+        list-style-type: none;
+        p {
+            margin: 10px;
+        }
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+.success_text {
+    display: none;
+    text-align: center;
+    font-weight: bold;
+}
+
+.success_text.show {
+    display: block;
 }
