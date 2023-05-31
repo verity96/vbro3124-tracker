@@ -229,6 +229,7 @@ main.active .modal-box {
     box-sizing: border-box;
     border-radius: 10px;
     cursor: pointer;
+    margin-bottom: 10px;
 }
   
 .card:hover {
@@ -324,4 +325,8 @@ fieldset {
 
 .success_text.show {
     display: block;
+}
+
+.comfortStar {
+    color: #F4AFCF;
 }

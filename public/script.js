@@ -24,49 +24,59 @@ form.addEventListener('submit', function(event) {
     )
 })
 
-function displayTask(task) {
-    let item = document.createElement('li');
+function displayTask() {
 
-        let comfortRating = "";
-        if (task.comfortRate == 1) {
-            comfortRating = "★";
-        } else if (task.comfortRate== 2) {
-            comfortRating = "★★";
-        } else if (task.comfortRate == 3) {
-            comfortRating = "★★★";
-        } else if (task.comfortRate == 4) {
-            comfortRating = "★★★★";
-        } else if (task.comfortRate == 5) {
-            comfortRating = "★★★★★";
-        } else {
-            comfortRating = "No rating available.";
-        };
+    tasklistElem.innerHTML = "";
 
-    item.setAttribute('data-id', task.id);
-    //function
-    item.innerHTML = `
-        <div class="card">
-            <div class="row">
-                <div class="col-8 column-spacing">
-                    <h3> ${task.brand} </h3>
-                    <p> ${task.name} </p>
-                    <p id="wearcount"> Wears ${task.wearCount} </p>
-                    <p class="comfortStar"> ${comfortRating} </p>
-                </div>
-                <div class="col-4 column-spacing">
-                    <img src="img-dest" class="img-dest" alt="Image of ${task.name}" /> 
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <button onclick="wearCounter()" type="button" class="addWear-btn">ADD WEAR +</button>
-                </div>
-            </div>
-        </div>
-    `; // TODO: Need to generate unique ID for the wearCount ^
-    tasklistElem.appendChild(item);
-    form.reset();
+    let localTasks = JSON.parse(localStorage.getItem('tasks'));
 
+    if (localTasks !== null) {
+
+        localTasks.forEach((task) => {
+
+            let item = document.createElement('li');
+
+                let comfortRating = "";
+                if (task.comfortRate == 1) {
+                    comfortRating = "★";
+                } else if (task.comfortRate == 2) {
+                    comfortRating = "★★";
+                } else if (task.comfortRate == 3) {
+                    comfortRating = "★★★";
+                } else if (task.comfortRate == 4) {
+                    comfortRating = "★★★★";
+                } else if (task.comfortRate == 5) {
+                    comfortRating = "★★★★★";
+                } else {
+                    comfortRating = "No rating available.";
+                };
+
+            item.setAttribute('data-id', task.id);
+            //function
+            item.innerHTML = `
+                <div class="card itemDetails">
+                    <div class="row">
+                        <div class="col-8 column-spacing">
+                            <h3> ${task.brand} </h3>
+                            <p> ${task.name} </p>
+                            <p id="wearcount"> Wears ${task.wearCount} </p>
+                            <p class="comfortStar"> ${comfortRating} </p>
+                        </div>
+                        <div class="col-4 column-spacing">
+                            <img src="img-dest" class="img-dest" alt="Image of ${task.name}" /> 
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <button onclick="wearCounter()" type="button" class="addWear-btn">ADD WEAR +</button>
+                        </div>
+                    </div>
+                </div>
+            `; // TODO: Need to generate unique ID for the wearCount ^
+            tasklistElem.appendChild(item);
+            form.reset();
+        })
+    }
 }
 
 function displayWardrobe(task) {
@@ -189,27 +199,34 @@ function wearCounter() {
 //Change to eventListener
 
 
+
   //Showing and hiding different elements
 const myElement = document.getElementById("taskForm");
+const taskDisplay = document.getElementById("taskDisplay");
 const showButton = document.getElementById("showElement");
 const hideButton = document.getElementById("hideElement");
+const itemDetailsCard = document.getElementById("itemDisplay");
+let showItem = document.querySelectorAll(".itemDetails");
 
-function showElement() {
-  myElement.classList.remove("hidden");
-}
+showButton.addEventListener("click", () => {
+    myElement.classList.remove("hidden");
+    taskDisplay.classList.add("hidden");
+});
+hideButton.addEventListener("click", () => {
+    myElement.classList.add("hidden");
+    taskDisplay.classList.remove("hidden");
+});
 
-function hideElement() {
-  myElement.classList.add("hidden");
-}
+//TODO: Not working to show individual card details
+showItem.forEach((card) => {
+    card.addEventListener("click", () => {
+        taskDisplay.classList.add("hidden");
+        itemDetailsCard.classList.remove("hidden");
+    });
+});
 
-// Attach event listeners
-showButton.addEventListener("click", showElement);
-hideButton.addEventListener("click", hideElement);
 
-  //TODO: How does local storage work with this code?
-var taskList = [];
-
-function addTask(name,  brand, size, colour, materialOne, materialTwo, cost, season, comfortRate, fitRate, image, category) {
+function addTask(name, brand, size, colour, materialOne, materialTwo, cost, season, comfortRate, fitRate, image, category) {
     let task = {
         name: name,
         id: Date.now(),
@@ -227,17 +244,26 @@ function addTask(name,  brand, size, colour, materialOne, materialTwo, cost, sea
         category: category
     }
 
-    //Local storage get set
+    let localTasks = JSON.parse(localStorage.getItem('tasks'));
 
-    taskList.push(task);
-    displayTask(task);
-    displayWardrobe(task);
-    displayItem(task);
+    if (localTasks == null) {
+        localTasks = [task];
+    } else {
+        if (localTasks.find(element => element.id === task.id)) {
+            console.log('Task ID already exists');
+        } else {
+            localTasks.push(task);
+        }
+    }
+
+    localStorage.setItem('tasks', JSON.stringify(localTasks));
+
+    displayTask();
+    displayWardrobe();
+    displayItem();
 }
 
-addTask("Flower dress", "H&M", "AU 6", "Pink", "Cotton", "Cotton", "69.99","Summer", 3, 4, "./Images/Asset 1.svg", "Dresses");
-console.log(taskList);
-
+//addTask("Flower dress", "H&M", "AU 6", "Pink", "Cotton", "Cotton", "69.99","Summer", 3, 4, "./Images/Asset 1.svg", "Dresses");
 
 /*Modal pop-up showing and hiding*/
 const main = document.querySelector('main'),
