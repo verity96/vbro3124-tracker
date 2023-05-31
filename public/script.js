@@ -74,37 +74,38 @@ function displayTask() {
                 </div>
             `; // TODO: Need to generate unique ID for the wearCount ^
             tasklistElem.appendChild(item);
+            wardrobeElem.appendChild(item); // How do I show in both?
             form.reset();
         })
     }
 }
 
-function displayWardrobe(task) {
-    let wardrobeItem = document.createElement('li');
-    wardrobeItem.setAttribute('data-id', task.id);
-    wardrobeItem.innerHTML = `
-        <div class="card">
-            <div class="row">
-                <div class="col-8 column-spacing">
-                    <h3> ${task.brand} </h3>
-                    <p> ${task.name} </p>
-                    <p id="wearcount"> Wears ${task.wearCount} </p>
-                    <p> ${task.comfortRate} </p>
-                </div>
-                <div class="col-4 column-spacing">
-                    <img id="img-dest" class="img-dest" alt="Image of ${task.name}"></img>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <button onclick="wearCounter()" type="button" class="addWear-btn">ADD WEAR +</button>
-                </div>
-            </div>
-        </div>
-    `;
-    wardrobeElem.appendChild(wardrobeItem);
+// function displayWardrobe(task) {
+//     let wardrobeItem = document.createElement('li');
+//     wardrobeItem.setAttribute('data-id', task.id);
+//     wardrobeItem.innerHTML = `
+//         <div class="card">
+//             <div class="row">
+//                 <div class="col-8 column-spacing">
+//                     <h3> ${task.brand} </h3>
+//                     <p> ${task.name} </p>
+//                     <p id="wearcount"> Wears ${task.wearCount} </p>
+//                     <p> ${task.comfortRate} </p>
+//                 </div>
+//                 <div class="col-4 column-spacing">
+//                     <img id="img-dest" class="img-dest" alt="Image of ${task.name}"></img>
+//                 </div>
+//             </div>
+//             <div class="row">
+//                 <div class="col-12">
+//                     <button onclick="wearCounter()" type="button" class="addWear-btn">ADD WEAR +</button>
+//                 </div>
+//             </div>
+//         </div>
+//     `;
+//     wardrobeElem.appendChild(wardrobeItem);
 
-}
+// }
 
 function displayItem(task) {
     let itemDetails = document.createElement('li');
@@ -131,7 +132,7 @@ function displayItem(task) {
     `;
     itemElem.appendChild(itemDetails);
 
-    //TODO: Only deleting detailed item not from category or wardrobe list
+    //TODO: Delete not working. Combine code for displays.
     let delButton = document.createElement('button');
     let delButtonText = document.createTextNode('Delete');
     delButton.setAttribute('class', 'deleteButton');
@@ -140,11 +141,15 @@ function displayItem(task) {
 
     delButton.addEventListener('click', function(event) {
         itemDetails.remove();
-        taskList.forEach(function(taskArrayElement, taskArrayIndex) {
+        localTasks.forEach(function(taskArrayElement, taskArrayIndex) {
             if (taskArrayElement.id == item.getAttribute('data-id')) {
-                taskList.splice(taskArrayIndex, 1);
+                localTasks.splice(taskArrayIndex, 1);
             }
         })
+
+        localStorage.setItem('tasks', JSON.stringify(localTasks));
+
+        item.remove();
     })
 
 }
@@ -264,6 +269,7 @@ function addTask(name, brand, size, colour, materialOne, materialTwo, cost, seas
 }
 
 //addTask("Flower dress", "H&M", "AU 6", "Pink", "Cotton", "Cotton", "69.99","Summer", 3, 4, "./Images/Asset 1.svg", "Dresses");
+displayTask();
 
 /*Modal pop-up showing and hiding*/
 const main = document.querySelector('main'),
