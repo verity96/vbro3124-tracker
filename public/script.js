@@ -241,11 +241,19 @@ console.log(taskList);
 
 /*Modal pop-up showing and hiding*/
 const main = document.querySelector('main'),
-    showBtn = document.querySelector('.show-modal'),
+modalCategory = document.querySelector('#modal-category'),
+    showBtn = document.querySelectorAll('.show-modal'),
     closeBtn = document.querySelector('.close-btn');
 
-showBtn.addEventListener('click', () => main.classList.add("active"));
-closeBtn.addEventListener('click', () => 
-//TODO: How can I remove success message at same time as closing the modal?? successMessage.classList.remove("show"),
+    showBtn.forEach((button) => {
+        button.addEventListener('click', (event) => {
+            console.log(event.target.textContent.trim());
+            modalCategory.textContent = event.target.textContent.trim();
+            main.classList.add("active");
+        });
+    })
+
+closeBtn.addEventListener('click', () => {
+successMessage.classList.remove("show")
 main.classList.remove("active")
-);
+});

@@ -5,6 +5,9 @@
     border: none;
     padding: 20px 0px;
     cursor: pointer;
+    img {
+        pointer-events: none;
+    }
 }
 
 .homePg-btn:hover {
