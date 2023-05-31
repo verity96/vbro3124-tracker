@@ -27,45 +27,23 @@ form.addEventListener('submit', function(event) {
 function displayTask(task) {
     let item = document.createElement('li');
 
-    // TODO: DON'T KNOW WHERE TO PUT THIS!! or should I use another method? For displaying purposes
-        /*switch (task.comfortRate) {
-        case "1" :
-            return "★";
-        ;
-        case "2" :
-            return "★★";
-        ;
-        case "3" :
-            return "★★★";
-        ;
-        case "4" :
-            return "★★★★";
-        ;
-        case "5" :
-            return "★★★★★";
-        ;
-        default :
-            return "No rating available";
-        ;
-        }
-        console.log(task.comfortRate);*/
-
-    /*let comfortRating = document.getElementById('comfortStar');
-        if (comfortRating == 1) {
-            comfortRating.innerHTML = "★";
-        } else if (comfortRating == 2) {
-            comfortRating.innerHTML = "★★";
-        } else if (comfortRating == 3) {
-            comfortRating.innerHTML = "★★★";
-        } else if (comfortRating == 4) {
-            comfortRating.innerHTML = "★★★★";
-        } else if (comfortRating == 5) {
-            comfortRating.innerHTML = "★★★★★";
+        let comfortRating = "";
+        if (task.comfortRate == 1) {
+            comfortRating = "★";
+        } else if (task.comfortRate== 2) {
+            comfortRating = "★★";
+        } else if (task.comfortRate == 3) {
+            comfortRating = "★★★";
+        } else if (task.comfortRate == 4) {
+            comfortRating = "★★★★";
+        } else if (task.comfortRate == 5) {
+            comfortRating = "★★★★★";
         } else {
-            comfortRating.innerHTML = "No rating available.";
-        };*/ 
+            comfortRating = "No rating available.";
+        };
 
     item.setAttribute('data-id', task.id);
+    //function
     item.innerHTML = `
         <div class="card">
             <div class="row">
@@ -73,7 +51,7 @@ function displayTask(task) {
                     <h3> ${task.brand} </h3>
                     <p> ${task.name} </p>
                     <p id="wearcount"> Wears ${task.wearCount} </p>
-                    <p id="comfortStar"> ${task.comfortRate} </p>
+                    <p class="comfortStar"> ${comfortRating} </p>
                 </div>
                 <div class="col-4 column-spacing">
                     <img src="img-dest" class="img-dest" alt="Image of ${task.name}" /> 
@@ -208,6 +186,7 @@ function wearCounter() {
     }
     document.querySelector("#wearcount").innerHTML = "Wears " + localStorage.wearcount;
   }
+//Change to eventListener
 
 
   //Showing and hiding different elements
@@ -247,6 +226,8 @@ function addTask(name,  brand, size, colour, materialOne, materialTwo, cost, sea
         image: image,
         category: category
     }
+
+    //Local storage get set
 
     taskList.push(task);
     displayTask(task);
