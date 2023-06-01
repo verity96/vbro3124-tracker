@@ -191,7 +191,11 @@ function displayItem(event) {
   // Add click event listeners to all item cards
   const itemCards = document.querySelectorAll('.card.itemDetails');
   itemCards.forEach((card) => {
-    card.addEventListener('click', displayItem());
+    card.addEventListener('click', () => {
+        displayItem();
+        garmentDisplay.classList.add("hidden");
+        console.log('Button clicked!');
+    });
   });
   
 
