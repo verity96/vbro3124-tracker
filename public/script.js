@@ -5,7 +5,7 @@ const wardrobeElem = document.querySelector('#wardrobeList');
 const itemElem = document.querySelector('#itemList');
 const successMessage = document.querySelector('#successfulAdd');
 
-
+//Adds item to local storage array from form submission
 form.addEventListener('submit', function(event) {
     event.preventDefault();
     successMessage.classList.add('show');
@@ -41,6 +41,7 @@ form.addEventListener('submit', function(event) {
 
 })
 
+//Displaying item cards with add wear button
 function displayGarment() {
 
     garmentElem.innerHTML = "";
@@ -84,19 +85,20 @@ function displayGarment() {
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <button onclick="wearCounter()" type="button" class="addWear-btn">ADD WEAR +</button>
+                            <button type="button" class="addWear-btn">ADD WEAR +</button>
                         </div>
                     </div>
                 </div>
-            `; // TODO: Need to generate unique ID for the wearCount ^
+            `; 
             garmentElem.appendChild(item);
-            wardrobeElem.appendChild(item); // How do I show in both home pg and modal?
+            wardrobeElem.appendChild(item); // TODO: How do I show in both home pg and modal?
             form.reset();
         })
     }
 }
 
-function displayItem(garment) {
+//Displaying individual items with details and delete button in modal
+function displayItem() {
 
     itemElem.innerHTML = "";
 
@@ -123,7 +125,7 @@ function displayItem(garment) {
                         <p> Fit Rating: ${garment.fitRate} </p>
                     </div>
                     <div class="col-5 column-spacing">
-                        <img src="img-dest" class="img-dest" alt="Image of ${garment.name}" /> 
+                        <img src="${garment.image}" alt="Image of ${garment.name}" /> 
                     </div>
                 </div>
             `;
@@ -131,7 +133,7 @@ function displayItem(garment) {
         })
     }
 
-    //TODO: Delete not working.
+    //TODO: Dont know if delete is working. Can't see to test.
     let delButton = document.createElement('button');
     let delButtonText = document.createTextNode('Delete');
     delButton.setAttribute('class', 'deleteButton');
@@ -153,41 +155,46 @@ function displayItem(garment) {
 
 }
 
-// TODO: Only storing once in localStorage. All buttons for new items only add to first wearCount
-function wearCounter() {
-    if (localStorage.wearcount) {
-      localStorage.wearcount = Number(localStorage.wearcount)+1;
-    } else {
-      localStorage.wearcount = 1;
-    }
-    document.querySelector("#wearcount").innerHTML = "Wears " + localStorage.wearcount;
-  }
-// document.addEventListener('click', function(event) {
-//     if (event.target.dataset.counter != undefined) {
-//       event.target.value++;
-//       window.localStorage.setItem(event.target.wearCount, event.target.value);
-//     }
-//   });
+// TODO: Connect wears to individual objects
+//Wear count button on each card adds one 'wear' each time it is clicked
+    let addWearBtn = document.querySelectorAll('.addWear-btn');
+
+    addWearBtn.addEventListener('click', function(event) {
+        let localGarments = JSON.parse(localStorage.getItem('garments')); //Do i bring this in again for this function?
+        localGarments.forEach(function(wearElement) {
+            if (wearElement.id == item.getAttribute('data-id')) {
+                event.target.value++;
+                window.localStorage.setItem(event.target.wearCount, event.target.value);
+                document.querySelector("#wearcount").innerHTML = "Wears " + event.target.wearCount;
+            }
+        })
+        
+    });
+
 
 
 //Showing and hiding different elements
-const myElement = document.getElementById("garmentForm");
+const formElement = document.getElementById("garmentForm");
 const garmentDisplay = document.getElementById("garmentDisplay");
 const showButton = document.getElementById("showElement");
 const hideButton = document.getElementById("hideElement");
 const itemDetailsCard = document.getElementById("itemDisplay");
 let showItem = document.querySelectorAll(".itemDetails");
 
+//Shows form when Add Item button clicked
 showButton.addEventListener("click", () => {
-    myElement.classList.remove("hidden");
+    formElement.classList.remove("hidden");
     garmentDisplay.classList.add("hidden");
 });
+
+//Hides form and displays items when Submit button clicked
 hideButton.addEventListener("click", () => {
-    myElement.classList.add("hidden");
+    formElement.classList.add("hidden");
     garmentDisplay.classList.remove("hidden");
 });
 
 //TODO: Not working to show individual card details
+//Shows code from display item function line 101
 showItem.forEach((card) => {
     card.addEventListener("click", () => {
         garmentDisplay.classList.add("hidden");
@@ -195,8 +202,8 @@ showItem.forEach((card) => {
     });
 });
 
-
-function addGarment(name, brand, size, colour, materialOne, materialTwo, cost, season, comfortRate, fitRate, image, category) {
+//Adds garment object to local storage
+function addGarment(name, brand, size, colour, materialOne, materialTwo, cost, season, comfortRate, fitRate, image, category, wearCount) {
     let garment = {
         name: name,
         id: Date.now(),
@@ -211,7 +218,8 @@ function addGarment(name, brand, size, colour, materialOne, materialTwo, cost, s
         comfortRate: comfortRate,
         fitRate: fitRate,
         image: image,
-        category: category
+        category: category,
+        wearCount: wearCount
     }
 
     let localGarments = JSON.parse(localStorage.getItem('garments'));
@@ -232,10 +240,9 @@ function addGarment(name, brand, size, colour, materialOne, materialTwo, cost, s
     displayItem();
 }
 
-//addTask("Flower dress", "H&M", "AU 6", "Pink", "Cotton", "Cotton", "69.99","Summer", 3, 4, "./Images/Asset 1.svg", "Dresses");
 displayGarment();
 
-/*Modal pop-up showing and hiding*/
+/*Modal pop-up showing and hiding with names of category tiles*/
 const main = document.querySelector('main'),
 modalCategory = document.querySelector('#modal-category'),
     showBtn = document.querySelectorAll('.show-modal'),
