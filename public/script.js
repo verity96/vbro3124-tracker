@@ -121,6 +121,17 @@ function displayGarment() {
             //Adds card to Wardrobe home page
             wardrobeElem.prepend(item); 
             form.reset();
+
+             // Add click event listeners to all item cards
+            const itemCards = document.querySelectorAll('.card.itemDetails');
+            itemCards.forEach((card) => {
+                card.addEventListener('click', () => {
+                    itemDisplay.classList.remove("hidden");
+                    displayItem;
+                    garmentDisplay.classList.add("hidden");
+                    console.log('Button clicked!');
+                });
+            });
         })
     }
 }
@@ -132,7 +143,7 @@ function displayItem(event) {
     event.stopPropagation(); // Prevent event from bubbling up
   
     // Get the data-id attribute of the clicked card
-    const itemId = event.currentTarget.getAttribute('data-id');
+    const itemId = event.target.getAttribute('data-id');
   
     // Retrieve the item from localStorage using the itemId
     const item = JSON.parse(localStorage.getItem(itemId));
@@ -188,15 +199,7 @@ function displayItem(event) {
     document.getElementById('itemDisplay').style.display = 'block';
   }
   
-  // Add click event listeners to all item cards
-  const itemCards = document.querySelectorAll('.card.itemDetails');
-  itemCards.forEach((card) => {
-    card.addEventListener('click', () => {
-        displayItem();
-        garmentDisplay.classList.add("hidden");
-        console.log('Button clicked!');
-    });
-  });
+ 
   
 
 // TODO: Connect wears to individual objects
@@ -220,6 +223,7 @@ function displayItem(event) {
 //Showing and hiding different elements
 const formElement = document.getElementById("garmentForm");
 const garmentDisplay = document.getElementById("garmentDisplay");
+const itemDisplay = document.getElementById("itemDisplay");
 const showButton = document.getElementById("showElement");
 const hideButton = document.getElementById("hideElement");
 const itemDetailsCard = document.getElementById("itemDisplay");
@@ -286,7 +290,6 @@ modalCategory = document.querySelector('#modal-category'),
 
     showBtn.forEach((button) => {
         button.addEventListener('click', (event) => {
-            console.log(event.target.textContent.trim());
             modalCategory.textContent = event.target.textContent.trim();
             main.classList.add("active");
         });
