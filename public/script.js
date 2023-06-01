@@ -69,6 +69,7 @@ function displayGarment() {
                     comfortRating = "No rating available.";
                 };
 
+            //Creates card for Home page
             item.setAttribute('data-id', garment.id);
             item.innerHTML = `
                 <div class="card itemDetails">
@@ -90,7 +91,8 @@ function displayGarment() {
                     </div>
                 </div>
             `; 
-            
+
+            //Creates card for Modal
             let itemModal = document.createElement('li');
 
             itemModal.setAttribute('data-id', garment.id);
@@ -114,7 +116,9 @@ function displayGarment() {
                     </div>
                 </div>
             `; 
+            //Adds card to modal
             garmentElem.prepend(itemModal);
+            //Adds card to Wardrobe home page
             wardrobeElem.prepend(item); // TODO: How do I show in both home pg and modal?
             form.reset();
         })
@@ -125,15 +129,16 @@ function displayGarment() {
 //Displaying individual items with details and delete button in modal
 function displayItem() {
 
+    garmentElem.classList.add('hidden');
     itemElem.innerHTML = "";
 
     let localGarments = JSON.parse(localStorage.getItem('garments'));
 
-    if (localGarments !== null) {
+    if (localGarments == garment.id) {
 
             localGarments.forEach((garment) => {
             let itemDetails = document.createElement('li');
-            itemDetails.setAttribute('data-id', garment.id);
+            itemDetails.getAttribute('data-id', garment.id);
             itemDetails.innerHTML = `
                 <div class="row">
                     <div class="col-7 column-spacing">
