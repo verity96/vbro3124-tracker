@@ -97,6 +97,7 @@ function displayGarment() {
     }
 }
 
+//TODO: How can this be displayed?
 //Displaying individual items with details and delete button in modal
 function displayItem() {
 
