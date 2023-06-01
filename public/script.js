@@ -125,52 +125,53 @@ function displayGarment() {
     }
 }
 
-//TODO: How can this be displayed?
-//Displaying individual items with details and delete button in modal
-function displayItem() {
+//TODO: How can this be displayed? Not working with card click
 
-    garmentElem.classList.add('hidden');
+// Function to display item details
+function displayItem(event) {
+    event.stopPropagation(); // Prevent event from bubbling up
+  
+    // Get the data-id attribute of the clicked card
+    const itemId = event.currentTarget.getAttribute('data-id');
+  
+    // Retrieve the item from localStorage using the itemId
+    const item = JSON.parse(localStorage.getItem(itemId));
+  
+    // Clear the itemList
     itemElem.innerHTML = "";
-
-    let localGarments = JSON.parse(localStorage.getItem('garments'));
-
-    if (localGarments == garment.id) {
-
-            localGarments.forEach((garment) => {
-            let itemDetails = document.createElement('li');
-            itemDetails.getAttribute('data-id', garment.id);
-            itemDetails.innerHTML = `
-                <div class="row">
-                    <div class="col-7 column-spacing">
-                        <h2> ${garment.name} </h2>
-                        <p id="wearcount" class="itemWears"> Wears: ${garment.wearCount} </p>
-                        <p> Brand: ${garment.brand} </p>
-                        <p> Size: ${garment.size} </p>
-                        <p> Colour: ${garment.colour} </p>
-                        <p> Material 1: ${garment.materialOne} </p>
-                        <p> Material 2: ${garment.materialTwo} </p>
-                        <p> Cost: $${garment.cost} </p>
-                        <p> Season: ${garment.season} </p>
-                        <p> Comfort Rating: ${garment.comfortRate} </p>
-                        <p> Fit Rating: ${garment.fitRate} </p>
-                    </div>
-                    <div class="col-5 column-spacing">
-                        <img src="${garment.image}" alt="Image of ${garment.name}" /> 
-                    </div>
-                </div>
-            `;
-            itemElem.appendChild(itemDetails);
-        })
-    }
-
-    //TODO: Dont know if delete is working. Can't see to test.
+  
+    // Create elements to display item details
+    const li = document.createElement('li');
+    li.innerHTML = `
+        <div class="row">
+            <div class="col-7 column-spacing">
+                <h2> ${garment.name} </h2>
+                <p id="wearcount" class="itemWears"> Wears: ${garment.wearCount} </p>
+                <p> Brand: ${garment.brand} </p>
+                <p> Size: ${garment.size} </p>
+                <p> Colour: ${garment.colour} </p>
+                <p> Material 1: ${garment.materialOne} </p>
+                <p> Material 2: ${garment.materialTwo} </p>
+                <p> Cost: $${garment.cost} </p>
+                <p> Season: ${garment.season} </p>
+                <p> Comfort Rating: ${garment.comfortRate} </p>
+                <p> Fit Rating: ${garment.fitRate} </p>
+            </div>
+            <div class="col-5 column-spacing">
+                <img src="${garment.image}" alt="Image of ${garment.name}" /> 
+            </div>
+        </div>
+    `;
+    itemElem.appendChild(li);
+  
+    //Create delete button
     let delButton = document.createElement('button');
     let delButtonText = document.createTextNode('Delete');
     delButton.setAttribute('class', 'deleteButton');
     delButton.appendChild(delButtonText);
     itemDetails.appendChild(delButton);
 
-    delButton.addEventListener('click', function(event) {
+    delButton.addEventListener('click', function() {
         itemDetails.remove();
         localGarments.forEach(function(garmentArrayElement, garmentArrayIndex) {
             if (garmentArrayElement.id == item.getAttribute('data-id')) {
@@ -182,8 +183,17 @@ function displayItem() {
 
         item.remove();
     })
-
-}
+    
+    // Show the item display
+    document.getElementById('itemDisplay').style.display = 'block';
+  }
+  
+  // Add click event listeners to all item cards
+  const itemCards = document.querySelectorAll('.card.itemDetails');
+  itemCards.forEach((card) => {
+    card.addEventListener('click', displayItem);
+  });
+  
 
 // TODO: Connect wears to individual objects
 //Wear count button on each card adds one 'wear' each time it is clicked
@@ -223,14 +233,6 @@ hideButton.addEventListener("click", () => {
     garmentDisplay.classList.remove("hidden");
 });
 
-//TODO: Not working to show individual card details
-//Shows code from display item function line 101
-showItem.forEach((card) => {
-    card.addEventListener("click", () => {
-        garmentDisplay.classList.add("hidden");
-        itemDetailsCard.classList.remove("hidden");
-    });
-});
 
 //Adds garment object to local storage
 function addGarment(name, brand, size, colour, materialOne, materialTwo, cost, season, comfortRate, fitRate, image, category, wearCount) {
