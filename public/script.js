@@ -5,23 +5,40 @@ const wardrobeElem = document.querySelector('#wardrobeList');
 const itemElem = document.querySelector('#itemList');
 const successMessage = document.querySelector('#successfulAdd');
 
+
 form.addEventListener('submit', function(event) {
-    //Block default submission behaviour
     event.preventDefault();
     successMessage.classList.add('show');
-    addTask(
-        form.elements.taskName.value, 
-        form.elements.taskBrand.value,
-        form.elements.taskSize.value,
-        form.elements.taskColour.value,
-        form.elements.taskMaterialOne.value,
-        form.elements.taskMaterialTwo.value,
-        form.elements.taskCost.value,
-        form.elements.taskSeason.value,
-        form.elements.taskComfort.value,
-        form.elements.taskFit.value,
-        form.elements.taskImage.value
-    )
+
+    let reader = new FileReader();
+
+    // Get the first selected file from the input element
+    let selectedFile = form.elements.taskImage.files[0];
+
+    // Set up the FileReader's 'onloadend' event handler
+    reader.onloadend = function (e) {
+        // Get the base64 representation of the image from the event target result
+        let imgData = e.target.result;
+
+        // Adding new item after image is read to ensure data is fully loaded
+        addTask(
+            form.elements.taskName.value,
+            form.elements.taskBrand.value,
+            form.elements.taskSize.value,
+            form.elements.taskColour.value,
+            form.elements.taskMaterialOne.value,
+            form.elements.taskMaterialTwo.value,
+            form.elements.taskCost.value,
+            form.elements.taskSeason.value,
+            form.elements.taskComfort.value,
+            form.elements.taskFit.value,
+            imgData
+        )
+    }
+
+    // Read the uploaded image as a Data URL (Base64 encoded string)
+    reader.readAsDataURL(selectedFile);
+
 })
 
 function displayTask() {
@@ -52,7 +69,6 @@ function displayTask() {
                 };
 
             item.setAttribute('data-id', task.id);
-            //function
             item.innerHTML = `
                 <div class="card itemDetails">
                     <div class="row">
@@ -63,7 +79,7 @@ function displayTask() {
                             <p class="comfortStar"> ${comfortRating} </p>
                         </div>
                         <div class="col-4 column-spacing">
-                            <img src="img-dest" class="img-dest" alt="Image of ${task.name}" /> 
+                            <img src=${task.image} class="itemImg" alt="Image of ${task.name}" /> 
                         </div>
                     </div>
                     <div class="row">
@@ -74,7 +90,7 @@ function displayTask() {
                 </div>
             `; // TODO: Need to generate unique ID for the wearCount ^
             tasklistElem.appendChild(item);
-            wardrobeElem.appendChild(item); // How do I show in both?
+            wardrobeElem.appendChild(item); // How do I show in both home pg and modal?
             form.reset();
         })
     }
@@ -108,29 +124,39 @@ function displayTask() {
 // }
 
 function displayItem(task) {
-    let itemDetails = document.createElement('li');
-    itemDetails.setAttribute('data-id', task.id);
-    itemDetails.innerHTML = `
-        <div class="row">
-            <div class="col-7 column-spacing">
-                <h2> ${task.name} </h2>
-                <p id="wearcount" class="itemWears"> Wears: ${task.wearCount} </p>
-                <p> Brand: ${task.brand} </p>
-                <p> Size: ${task.size} </p>
-                <p> Colour: ${task.colour} </p>
-                <p> Material 1: ${task.materialOne} </p>
-                <p> Material 2: ${task.materialTwo} </p>
-                <p> Cost: $${task.cost} </p>
-                <p> Season: ${task.season} </p>
-                <p> Comfort Rating: ${task.comfortRate} </p>
-                <p> Fit Rating: ${task.fitRate} </p>
-            </div>
-            <div class="col-5 column-spacing">
-                <img src="img-dest" class="img-dest" alt="Image of ${task.name}" /> 
-            </div>
-        </div>
-    `;
-    itemElem.appendChild(itemDetails);
+
+    itemElem.innerHTML = "";
+
+    let localTasks = JSON.parse(localStorage.getItem('tasks'));
+
+    if (localTasks !== null) {
+
+            localTasks.forEach((task) => {
+            let itemDetails = document.createElement('li');
+            itemDetails.setAttribute('data-id', task.id);
+            itemDetails.innerHTML = `
+                <div class="row">
+                    <div class="col-7 column-spacing">
+                        <h2> ${task.name} </h2>
+                        <p id="wearcount" class="itemWears"> Wears: ${task.wearCount} </p>
+                        <p> Brand: ${task.brand} </p>
+                        <p> Size: ${task.size} </p>
+                        <p> Colour: ${task.colour} </p>
+                        <p> Material 1: ${task.materialOne} </p>
+                        <p> Material 2: ${task.materialTwo} </p>
+                        <p> Cost: $${task.cost} </p>
+                        <p> Season: ${task.season} </p>
+                        <p> Comfort Rating: ${task.comfortRate} </p>
+                        <p> Fit Rating: ${task.fitRate} </p>
+                    </div>
+                    <div class="col-5 column-spacing">
+                        <img src="img-dest" class="img-dest" alt="Image of ${task.name}" /> 
+                    </div>
+                </div>
+            `;
+            itemElem.appendChild(itemDetails);
+        })
+    }
 
     //TODO: Delete not working. Combine code for displays.
     let delButton = document.createElement('button');
@@ -153,44 +179,6 @@ function displayItem(task) {
     })
 
 }
-
-
-/*TODO: Images not showing up on item card display.
-        base64 is logging in console
-        Uncaught TypeError: Cannot set properties of null (setting 'src') at reader.onloadend (script.js:149:16)*/
-
-
-// Get the image input and destination elements
-const imgInput = document.getElementById("taskImage");
-const imgDest = document.getElementById("img-dest");
-
-// Add a 'change' event listener to the image input element
-imgInput.addEventListener("change", function (event) {
-  // Create a new FileReader instance
-  var reader = new FileReader();
-
-  // Get the first selected file from the input event (the image)
-  var selectedFile = event.target.files[0];
-
-  // Set up the FileReader's 'onloadend' event handler
-  reader.onloadend = function (e) {
-    // Get the base64 representation of the image from the event target result
-    var base64 = e.target.result;
-    
-    // Log the base64 data to the console
-    console.log(base64);
-    
-    // Store the base64 image data in localStorage with the key 'imgData'
-    localStorage.setItem("imgData", base64);
-    
-    // Set the destination element's src attribute to the base64 data to display the uploaded image
-    imgDest.src = base64;
-  };
-
-  // Read the uploaded image as a Data URL (Base64 encoded string)
-  reader.readAsDataURL(selectedFile);
-});
-
 
 // TODO: Only storing once in localStorage. All buttons for new items only add to first wearCount
 function wearCounter() {
