@@ -119,7 +119,7 @@ function displayGarment() {
             //Adds card to modal
             garmentElem.prepend(itemModal);
             //Adds card to Wardrobe home page
-            wardrobeElem.prepend(item); // TODO: How do I show in both home pg and modal?
+            wardrobeElem.prepend(item); 
             form.reset();
         })
     }
