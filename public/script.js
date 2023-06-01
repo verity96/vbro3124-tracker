@@ -1,6 +1,6 @@
 
-const form = document.getElementById('taskForm');
-const tasklistElem = document.querySelector('#taskList');
+const form = document.getElementById('garmentForm');
+const garmentElem = document.querySelector('#garmentList');
 const wardrobeElem = document.querySelector('#wardrobeList');
 const itemElem = document.querySelector('#itemList');
 const successMessage = document.querySelector('#successfulAdd');
@@ -13,7 +13,7 @@ form.addEventListener('submit', function(event) {
     let reader = new FileReader();
 
     // Get the first selected file from the input element
-    let selectedFile = form.elements.taskImage.files[0];
+    let selectedFile = form.elements.garmentImage.files[0];
 
     // Set up the FileReader's 'onloadend' event handler
     reader.onloadend = function (e) {
@@ -21,17 +21,17 @@ form.addEventListener('submit', function(event) {
         let imgData = e.target.result;
 
         // Adding new item after image is read to ensure data is fully loaded
-        addTask(
-            form.elements.taskName.value,
-            form.elements.taskBrand.value,
-            form.elements.taskSize.value,
-            form.elements.taskColour.value,
-            form.elements.taskMaterialOne.value,
-            form.elements.taskMaterialTwo.value,
-            form.elements.taskCost.value,
-            form.elements.taskSeason.value,
-            form.elements.taskComfort.value,
-            form.elements.taskFit.value,
+        addGarment(
+            form.elements.garmentName.value,
+            form.elements.garmentBrand.value,
+            form.elements.garmentSize.value,
+            form.elements.garmentColour.value,
+            form.elements.garmentMaterialOne.value,
+            form.elements.garmentMaterialTwo.value,
+            form.elements.garmentCost.value,
+            form.elements.garmentSeason.value,
+            form.elements.garmentComfort.value,
+            form.elements.garmentFit.value,
             imgData
         )
     }
@@ -41,45 +41,45 @@ form.addEventListener('submit', function(event) {
 
 })
 
-function displayTask() {
+function displayGarment() {
 
-    tasklistElem.innerHTML = "";
+    garmentElem.innerHTML = "";
 
-    let localTasks = JSON.parse(localStorage.getItem('tasks'));
+    let localGarments = JSON.parse(localStorage.getItem('garments'));
 
-    if (localTasks !== null) {
+    if (localGarments !== null) {
 
-        localTasks.forEach((task) => {
+        localGarments.forEach((garment) => {
 
             let item = document.createElement('li');
 
                 let comfortRating = "";
-                if (task.comfortRate == 1) {
+                if (garment.comfortRate == 1) {
                     comfortRating = "★";
-                } else if (task.comfortRate == 2) {
+                } else if (garment.comfortRate == 2) {
                     comfortRating = "★★";
-                } else if (task.comfortRate == 3) {
+                } else if (garment.comfortRate == 3) {
                     comfortRating = "★★★";
-                } else if (task.comfortRate == 4) {
+                } else if (garment.comfortRate == 4) {
                     comfortRating = "★★★★";
-                } else if (task.comfortRate == 5) {
+                } else if (garment.comfortRate == 5) {
                     comfortRating = "★★★★★";
                 } else {
                     comfortRating = "No rating available.";
                 };
 
-            item.setAttribute('data-id', task.id);
+            item.setAttribute('data-id', garment.id);
             item.innerHTML = `
                 <div class="card itemDetails">
                     <div class="row">
                         <div class="col-8 column-spacing">
-                            <h3> ${task.brand} </h3>
-                            <p> ${task.name} </p>
-                            <p id="wearcount"> Wears ${task.wearCount} </p>
-                            <p class="comfortStar"> ${comfortRating} </p>
+                            <h3> ${garment.brand} </h3>
+                            <p> ${garment.name} </p>
+                            <p id="wearcount"> Wears: ${garment.wearCount} </p>
+                            <p> Comfort Rating: <span style="color:#F4AFCF">${comfortRating}</span> </p>
                         </div>
                         <div class="col-4 column-spacing">
-                            <img src=${task.image} class="itemImg" alt="Image of ${task.name}" /> 
+                            <img src=${garment.image} class="itemImg" alt="Image of ${garment.name}" /> 
                         </div>
                     </div>
                     <div class="row">
@@ -89,68 +89,41 @@ function displayTask() {
                     </div>
                 </div>
             `; // TODO: Need to generate unique ID for the wearCount ^
-            tasklistElem.appendChild(item);
+            garmentElem.appendChild(item);
             wardrobeElem.appendChild(item); // How do I show in both home pg and modal?
             form.reset();
         })
     }
 }
 
-// function displayWardrobe(task) {
-//     let wardrobeItem = document.createElement('li');
-//     wardrobeItem.setAttribute('data-id', task.id);
-//     wardrobeItem.innerHTML = `
-//         <div class="card">
-//             <div class="row">
-//                 <div class="col-8 column-spacing">
-//                     <h3> ${task.brand} </h3>
-//                     <p> ${task.name} </p>
-//                     <p id="wearcount"> Wears ${task.wearCount} </p>
-//                     <p> ${task.comfortRate} </p>
-//                 </div>
-//                 <div class="col-4 column-spacing">
-//                     <img id="img-dest" class="img-dest" alt="Image of ${task.name}"></img>
-//                 </div>
-//             </div>
-//             <div class="row">
-//                 <div class="col-12">
-//                     <button onclick="wearCounter()" type="button" class="addWear-btn">ADD WEAR +</button>
-//                 </div>
-//             </div>
-//         </div>
-//     `;
-//     wardrobeElem.appendChild(wardrobeItem);
-
-// }
-
-function displayItem(task) {
+function displayItem(garment) {
 
     itemElem.innerHTML = "";
 
-    let localTasks = JSON.parse(localStorage.getItem('tasks'));
+    let localGarments = JSON.parse(localStorage.getItem('garments'));
 
-    if (localTasks !== null) {
+    if (localGarments !== null) {
 
-            localTasks.forEach((task) => {
+            localGarments.forEach((garment) => {
             let itemDetails = document.createElement('li');
-            itemDetails.setAttribute('data-id', task.id);
+            itemDetails.setAttribute('data-id', garment.id);
             itemDetails.innerHTML = `
                 <div class="row">
                     <div class="col-7 column-spacing">
-                        <h2> ${task.name} </h2>
-                        <p id="wearcount" class="itemWears"> Wears: ${task.wearCount} </p>
-                        <p> Brand: ${task.brand} </p>
-                        <p> Size: ${task.size} </p>
-                        <p> Colour: ${task.colour} </p>
-                        <p> Material 1: ${task.materialOne} </p>
-                        <p> Material 2: ${task.materialTwo} </p>
-                        <p> Cost: $${task.cost} </p>
-                        <p> Season: ${task.season} </p>
-                        <p> Comfort Rating: ${task.comfortRate} </p>
-                        <p> Fit Rating: ${task.fitRate} </p>
+                        <h2> ${garment.name} </h2>
+                        <p id="wearcount" class="itemWears"> Wears: ${garment.wearCount} </p>
+                        <p> Brand: ${garment.brand} </p>
+                        <p> Size: ${garment.size} </p>
+                        <p> Colour: ${garment.colour} </p>
+                        <p> Material 1: ${garment.materialOne} </p>
+                        <p> Material 2: ${garment.materialTwo} </p>
+                        <p> Cost: $${garment.cost} </p>
+                        <p> Season: ${garment.season} </p>
+                        <p> Comfort Rating: ${garment.comfortRate} </p>
+                        <p> Fit Rating: ${garment.fitRate} </p>
                     </div>
                     <div class="col-5 column-spacing">
-                        <img src="img-dest" class="img-dest" alt="Image of ${task.name}" /> 
+                        <img src="img-dest" class="img-dest" alt="Image of ${garment.name}" /> 
                     </div>
                 </div>
             `;
@@ -158,7 +131,7 @@ function displayItem(task) {
         })
     }
 
-    //TODO: Delete not working. Combine code for displays.
+    //TODO: Delete not working.
     let delButton = document.createElement('button');
     let delButtonText = document.createTextNode('Delete');
     delButton.setAttribute('class', 'deleteButton');
@@ -167,13 +140,13 @@ function displayItem(task) {
 
     delButton.addEventListener('click', function(event) {
         itemDetails.remove();
-        localTasks.forEach(function(taskArrayElement, taskArrayIndex) {
-            if (taskArrayElement.id == item.getAttribute('data-id')) {
-                localTasks.splice(taskArrayIndex, 1);
+        localGarments.forEach(function(garmentArrayElement, garmentArrayIndex) {
+            if (garmentArrayElement.id == item.getAttribute('data-id')) {
+                localGarments.splice(garmentArrayIndex, 1);
             }
         })
 
-        localStorage.setItem('tasks', JSON.stringify(localTasks));
+        localStorage.setItem('garments', JSON.stringify(localGarments));
 
         item.remove();
     })
@@ -189,13 +162,17 @@ function wearCounter() {
     }
     document.querySelector("#wearcount").innerHTML = "Wears " + localStorage.wearcount;
   }
-//Change to eventListener
+// document.addEventListener('click', function(event) {
+//     if (event.target.dataset.counter != undefined) {
+//       event.target.value++;
+//       window.localStorage.setItem(event.target.wearCount, event.target.value);
+//     }
+//   });
 
 
-
-  //Showing and hiding different elements
-const myElement = document.getElementById("taskForm");
-const taskDisplay = document.getElementById("taskDisplay");
+//Showing and hiding different elements
+const myElement = document.getElementById("garmentForm");
+const garmentDisplay = document.getElementById("garmentDisplay");
 const showButton = document.getElementById("showElement");
 const hideButton = document.getElementById("hideElement");
 const itemDetailsCard = document.getElementById("itemDisplay");
@@ -203,24 +180,24 @@ let showItem = document.querySelectorAll(".itemDetails");
 
 showButton.addEventListener("click", () => {
     myElement.classList.remove("hidden");
-    taskDisplay.classList.add("hidden");
+    garmentDisplay.classList.add("hidden");
 });
 hideButton.addEventListener("click", () => {
     myElement.classList.add("hidden");
-    taskDisplay.classList.remove("hidden");
+    garmentDisplay.classList.remove("hidden");
 });
 
 //TODO: Not working to show individual card details
 showItem.forEach((card) => {
     card.addEventListener("click", () => {
-        taskDisplay.classList.add("hidden");
+        garmentDisplay.classList.add("hidden");
         itemDetailsCard.classList.remove("hidden");
     });
 });
 
 
-function addTask(name, brand, size, colour, materialOne, materialTwo, cost, season, comfortRate, fitRate, image, category) {
-    let task = {
+function addGarment(name, brand, size, colour, materialOne, materialTwo, cost, season, comfortRate, fitRate, image, category) {
+    let garment = {
         name: name,
         id: Date.now(),
         date: new Date().toISOString(),
@@ -237,27 +214,26 @@ function addTask(name, brand, size, colour, materialOne, materialTwo, cost, seas
         category: category
     }
 
-    let localTasks = JSON.parse(localStorage.getItem('tasks'));
+    let localGarments = JSON.parse(localStorage.getItem('garments'));
 
-    if (localTasks == null) {
-        localTasks = [task];
+    if (localGarments == null) {
+        localGarments = [garment];
     } else {
-        if (localTasks.find(element => element.id === task.id)) {
-            console.log('Task ID already exists');
+        if (localGarments.find(element => element.id === garment.id)) {
+            console.log('Garment ID already exists');
         } else {
-            localTasks.push(task);
+            localGarments.push(garment);
         }
     }
 
-    localStorage.setItem('tasks', JSON.stringify(localTasks));
+    localStorage.setItem('garments', JSON.stringify(localGarments));
 
-    displayTask();
-    displayWardrobe();
+    displayGarment();
     displayItem();
 }
 
 //addTask("Flower dress", "H&M", "AU 6", "Pink", "Cotton", "Cotton", "69.99","Summer", 3, 4, "./Images/Asset 1.svg", "Dresses");
-displayTask();
+displayGarment();
 
 /*Modal pop-up showing and hiding*/
 const main = document.querySelector('main'),

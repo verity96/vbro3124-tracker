@@ -91,20 +91,20 @@
                 <button class="close-btn">X</button>
             </div>
             <div class="modal-body">
-                <form id="taskForm" class="hidden">
+                <form id="garmentForm" class="hidden">
                     <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 column-spacing">
-                            <label for="taskName">Item Name</label>
-                            <input type="text" name="taskName" id="taskName" required="true" />
+                            <label for="garmentName">Item Name</label>
+                            <input type="text" name="garmentName" id="garmentName" required="true" />
                             <br/>
-                            <label for="taskBrand">Brand</label>
-                            <input type="text" name="taskBrand" id="taskBrand" required="false" />
+                            <label for="garmentBrand">Brand</label>
+                            <input type="text" name="garmentBrand" id="garmentBrand" required="false" />
                             <br/>
-                            <label for="taskSize">Size</label>
-                            <input type="text" name="taskSize" id="taskSize" required="false" />
+                            <label for="garmentSize">Size</label>
+                            <input type="text" name="garmentSize" id="garmentSize" required="false" />
                             <br/>
-                            <label for="taskColour">Colour</label>
-                                <select id="taskColour" name="taskColour" required="true">
+                            <label for="garmentColour">Colour</label>
+                                <select id="garmentColour" name="garmentColour" required="true">
                                     <option value="select">Select option:</option>
                                     <option value="red">Red</option>
                                     <option value="orange">Orange</option>
@@ -123,8 +123,8 @@
                             <br/>
                             <div class="row">
                                 <div class="col-6 column-spacing">
-                                    <label for="taskMaterialOne">Material 1</label>
-                                        <select id="taskMaterialOne" name="taskMaterialOne" required="false">
+                                    <label for="garmentMaterialOne">Material 1</label>
+                                        <select id="garmentMaterialOne" name="garmentMaterialOne" required="false">
                                             <option value="select">Select material type:</option>
                                             <option value="chiffon">Chiffon</option>
                                             <option value="cotton">Cotton</option>
@@ -144,8 +144,8 @@
                                         </select>
                                 </div>
                                 <div class="col-6 column-spacing">
-                                    <label for="taskMaterialTwo">Material 2</label>
-                                        <select id="taskMaterialTwo" name="taskMaterialTwo" required="false">
+                                    <label for="garmentMaterialTwo">Material 2</label>
+                                        <select id="garmentMaterialTwo" name="garmentMaterialTwo" required="false">
                                             <option value="select">Select material type:</option>
                                             <option value="chiffon">Chiffon</option>
                                             <option value="cotton">Cotton</option>
@@ -167,47 +167,47 @@
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 column-spacing">
-                            <label for="taskCost">Cost</label>
-                            <input type="number" name="taskCost" id="taskCost" required="false" />
+                            <label for="garmentCost">Cost</label>
+                            <input type="number" name="garmentCost" id="garmentCost" step="any"/>
                             <br/>
-                            <label for="taskSeason">Season</label>
-                            <select id="taskSeason" name="taskSeason" required="false">
+                            <label for="garmentSeason">Season</label>
+                            <select id="garmentSeason" name="garmentSeason" required="false">
                                 <option value="summer">Summer</option>
                                 <option value="autumn">Autumn</option>
                                 <option value="winter">Winter</option>
                                 <option value="spring">Spring</option>
                             </select>
                             <br/>
-                            <label class="inputHeading" for="taskComfort">Comfort Rating</label>
+                            <label class="inputHeading" for="garmentComfort">Comfort Rating</label>
                                 <fieldset class="rate">
-                                    <input type="radio" name="taskComfort" id="taskComfort5" value="5" />
-                                    <label for="taskComfort5"></label>
-                                    <input type="radio" name="taskComfort" id="taskComfort4" value="4" />
-                                    <label for="taskComfort4"></label>
-                                    <input type="radio" name="taskComfort" id="taskComfort3" value="3" />
-                                    <label for="taskComfort3"></label>
-                                    <input type="radio" name="taskComfort" id="taskComfort2" value="2" />
-                                    <label for="taskComfort2"></label>
-                                    <input type="radio" name="taskComfort" id="taskComfort1" value="1" />
-                                    <label for="taskComfort1"></label>
+                                    <input type="radio" name="garmentComfort" id="garmentComfort5" value="5" />
+                                    <label for="garmentComfort5"></label>
+                                    <input type="radio" name="garmentComfort" id="garmentComfort4" value="4" />
+                                    <label for="garmentComfort4"></label>
+                                    <input type="radio" name="garmentComfort" id="garmentComfort3" value="3" />
+                                    <label for="garmentComfort3"></label>
+                                    <input type="radio" name="garmentComfort" id="garmentComfort2" value="2" />
+                                    <label for="garmentComfort2"></label>
+                                    <input type="radio" name="garmentComfort" id="garmentComfort1" value="1" />
+                                    <label for="garmentComfort1"></label>
                                 </fieldset>
                             <br/>
-                            <label for="taskFit">Fit Rating</label>
+                            <label for="garmentFit">Fit Rating</label>
                                 <fieldset class="rate">
-                                    <input type="radio" name="taskFit" id="taskFit5" value="5" />
-                                    <label for="taskFit5"></label>
-                                    <input type="radio" name="taskFit" id="taskFit4" value="4" />
-                                    <label for="taskFit4"></label>
-                                    <input type="radio" name="taskFit" id="taskFit3" value="3" />
-                                    <label for="taskFit3"></label>
-                                    <input type="radio" name="taskFit" id="taskFit2" value="2" />
-                                    <label for="taskFit2"></label>
-                                    <input type="radio" name="taskFit" id="taskFit1" value="1" />
-                                    <label for="taskFit1"></label>
+                                    <input type="radio" name="garmentFit" id="garmentFit5" value="5" />
+                                    <label for="garmentFit5"></label>
+                                    <input type="radio" name="garmentFit" id="garmentFit4" value="4" />
+                                    <label for="garmentFit4"></label>
+                                    <input type="radio" name="garmentFit" id="garmentFit3" value="3" />
+                                    <label for="garmentFit3"></label>
+                                    <input type="radio" name="garmentFit" id="garmentFit2" value="2" />
+                                    <label for="garmentFit2"></label>
+                                    <input type="radio" name="garmentFit" id="garmentFit1" value="1" />
+                                    <label for="garmentFit1"></label>
                                 </fieldset>
                             <br/>
-                            <label for="taskImage">Image Upload</label>
-                            <input name="taskImage" id="taskImage" type="file" />
+                            <label for="garmentImage">Image Upload</label>
+                            <input name="garmentImage" id="garmentImage" type="file" />
                         </div>
                     </div>
                     <div class="row center-items">
@@ -216,7 +216,7 @@
                         </div>
                     </div>
                 </form>
-                <div id="taskDisplay">
+                <div id="garmentDisplay">
                     <div class="row">
                         <div class="col-12 column-spacing">
                             <div id="successfulAdd" class="center-items success_text">
@@ -224,7 +224,7 @@
                                 <h3>Success!</h3>
                                 <p>Your new item has been added.</p>
                             </div>
-                            <ul id="taskList">
+                            <ul id="garmentList">
                                 <!--Displays item cards in modal-->
                             </ul>
                         </div>
