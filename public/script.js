@@ -90,8 +90,32 @@ function displayGarment() {
                     </div>
                 </div>
             `; 
-            garmentElem.appendChild(item);
-            wardrobeElem.appendChild(item); // TODO: How do I show in both home pg and modal?
+            
+            let itemModal = document.createElement('li');
+
+            itemModal.setAttribute('data-id', garment.id);
+            itemModal.innerHTML = `
+                <div class="card itemDetails">
+                    <div class="row">
+                        <div class="col-8 column-spacing">
+                            <h3> ${garment.brand} </h3>
+                            <p> ${garment.name} </p>
+                            <p id="wearcount"> Wears: ${garment.wearCount} </p>
+                            <p> Comfort Rating: <span style="color:#F4AFCF">${comfortRating}</span> </p>
+                        </div>
+                        <div class="col-4 column-spacing">
+                            <img src=${garment.image} class="itemImg" alt="Image of ${garment.name}" /> 
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <button type="button" class="addWear-btn">ADD WEAR +</button>
+                        </div>
+                    </div>
+                </div>
+            `; 
+            garmentElem.prepend(itemModal);
+            wardrobeElem.prepend(item); // TODO: How do I show in both home pg and modal?
             form.reset();
         })
     }
@@ -158,19 +182,19 @@ function displayItem() {
 
 // TODO: Connect wears to individual objects
 //Wear count button on each card adds one 'wear' each time it is clicked
-    let addWearBtn = document.querySelectorAll('.addWear-btn');
+    // let addWearBtn = document.querySelectorAll('.addWear-btn');
 
-    addWearBtn.addEventListener('click', function(event) {
-        let localGarments = JSON.parse(localStorage.getItem('garments')); //Do i bring this in again for this function?
-        localGarments.forEach(function(wearElement) {
-            if (wearElement.id == item.getAttribute('data-id')) {
-                event.target.value++;
-                window.localStorage.setItem(event.target.wearCount, event.target.value);
-                document.querySelector("#wearcount").innerHTML = "Wears " + event.target.wearCount;
-            }
-        })
+    // addWearBtn.addEventListener('click', function(event) {
+    //     let localGarments = JSON.parse(localStorage.getItem('garments')); //Do i bring this in again for this function?
+    //     localGarments.forEach(function(wearElement) {
+    //         if (wearElement.id == item.getAttribute('data-id')) {
+    //             event.target.value++;
+    //             window.localStorage.setItem(event.target.wearCount, event.target.value);
+    //             document.querySelector("#wearcount").innerHTML = "Wears " + event.target.wearCount;
+    //         }
+    //     })
         
-    });
+    // });
 
 
 
