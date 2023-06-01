@@ -169,10 +169,10 @@ function displayItem(event) {
     let delButtonText = document.createTextNode('Delete');
     delButton.setAttribute('class', 'deleteButton');
     delButton.appendChild(delButtonText);
-    itemDetails.appendChild(delButton);
+    li.appendChild(delButton);
 
     delButton.addEventListener('click', function() {
-        itemDetails.remove();
+        li.remove();
         localGarments.forEach(function(garmentArrayElement, garmentArrayIndex) {
             if (garmentArrayElement.id == item.getAttribute('data-id')) {
                 localGarments.splice(garmentArrayIndex, 1);
@@ -191,7 +191,7 @@ function displayItem(event) {
   // Add click event listeners to all item cards
   const itemCards = document.querySelectorAll('.card.itemDetails');
   itemCards.forEach((card) => {
-    card.addEventListener('click', displayItem);
+    card.addEventListener('click', displayItem());
   });
   
 
