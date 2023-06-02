@@ -418,6 +418,7 @@ const wardrobeElem = document.querySelector('#wardrobeList');
 const itemElem = document.querySelector('#itemList');
 const successMessage = document.querySelector('#successfulAdd');
 
+
 //Adds item to local storage array from form submission
 form.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -642,22 +643,27 @@ function displayItem(item) {
 
         item.remove();
 
-        main.classList.remove("active")
+        main.classList.remove("active");
+        garmentDisplay.classList.remove("hidden");
+        itemDisplay.classList.add("hidden");
         currentCategory = "";
 
         // Run again to update list in case wear count has changed
+        displayGarmentsInCateogry();
         displayGarmentsInWardrobe();
     })
 
     let itemCloseButton = document.createElement('button');
     let itemCloseText = document.createTextNode('Close');
     itemCloseButton.setAttribute('class', 'itemCloseButton');
+    itemCloseButton.setAttribute('id', 'itemCloseButton');
     itemCloseButton.appendChild(itemCloseText);
     li.appendChild(itemCloseButton);
 
     itemCloseButton.addEventListener('click', function() {
         itemDisplay.classList.add("hidden");
         garmentDisplay.classList.remove("hidden");
+        displayGarmentsInCateogry();
     })
 
     // Show the item display
@@ -688,6 +694,7 @@ showButton.addEventListener("click", () => {
 hideButton.addEventListener("click", () => {
     formElement.classList.add("hidden");
     garmentDisplay.classList.remove("hidden");
+    displayGarmentsInCateogry();
 });
 
 
@@ -726,7 +733,6 @@ function addGarment(name, brand, size, colour, materialOne, materialTwo, cost, s
     localStorage.setItem('garments', JSON.stringify(localGarments));
 
     displayGarmentsInWardrobe();
-    displayGarmentsInCateogry();
 
 }
 
@@ -740,9 +746,9 @@ const main = document.querySelector('main'),
 
 showBtn.forEach((button) => {
     button.addEventListener('click', (event) => {
+        main.classList.add("active");
         currentCategory = button.getAttribute('data-category');
         modalCategory.textContent = currentCategory;
-        main.classList.add("active");
         displayGarmentsInCateogry();
     });
 })
@@ -750,8 +756,9 @@ showBtn.forEach((button) => {
 closeBtn.addEventListener('click', () => {
     successMessage.classList.remove("show")
     main.classList.remove("active")
+    itemDisplay.classList.add("hidden")
     currentCategory = "";
-
+    
     // Run again to update list in case wear count has changed
     displayGarmentsInWardrobe();
 });
