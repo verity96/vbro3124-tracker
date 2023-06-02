@@ -174,7 +174,7 @@ function displayItem(ID) {
                 <p> Fit Rating: ${garment.fitRate} </p>
             </div>
             <div class="col-5 column-spacing ">
-                <img src="${garment.image}" alt="Image of ${garment.name}" /> 
+                <img src="${garment.image}" class="itemImg" alt="Image of ${garment.name}" /> 
             </div>
         </div>
     `;
@@ -198,6 +198,17 @@ function displayItem(ID) {
         localStorage.setItem('garments', JSON.stringify(localGarments));
 
         garment.remove();
+    })
+
+    let itemCloseButton = document.createElement('button');
+    let itemCloseText = document.createTextNode('Close');
+    itemCloseButton.setAttribute('class', 'itemCloseButton');
+    itemCloseButton.appendChild(itemCloseText);
+    li.appendChild(itemCloseButton);
+
+    itemCloseButton.addEventListener('click', function() {
+        itemDisplay.classList.add("hidden");
+        garmentDisplay.classList.remove("hidden");
     })
     
     // Show the item display
