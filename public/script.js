@@ -37,7 +37,7 @@ form.addEventListener('submit', function(event) {
     }
 
     // Read the uploaded image as a Data URL (Base64 encoded string)
-    reader.readAsDataURL(selectedFile);
+    reader.readAsDataURL(selectedFile);  
 
 })
 
@@ -127,7 +127,7 @@ function displayGarment() {
             itemCards.forEach((card) => {
                 card.addEventListener('click', () => {
                     itemDisplay.classList.remove("hidden");
-                    displayItem;
+                    displayItem(garment.id);
                     garmentDisplay.classList.add("hidden");
                     console.log('Button clicked!');
                 });
@@ -139,14 +139,19 @@ function displayGarment() {
 //TODO: How can this be displayed? Not working with card click
 
 // Function to display item details
-function displayItem(event) {
-    event.stopPropagation(); // Prevent event from bubbling up
-  
+function displayItem(ID) {
     // Get the data-id attribute of the clicked card
-    const itemId = event.target.getAttribute('data-id');
+    console.log(ID);
+
+    let localGarments = JSON.parse(localStorage.getItem('garments'));
   
+    let garment = [];
     // Retrieve the item from localStorage using the itemId
-    const item = JSON.parse(localStorage.getItem(itemId));
+    for(i = 0; i < localGarments.length; i++) {
+        if(localGarments[i].id == ID) {
+            garment = localGarments[i];
+        }
+    }
   
     // Clear the itemList
     itemElem.innerHTML = "";
@@ -168,7 +173,7 @@ function displayItem(event) {
                 <p> Comfort Rating: ${garment.comfortRate} </p>
                 <p> Fit Rating: ${garment.fitRate} </p>
             </div>
-            <div class="col-5 column-spacing">
+            <div class="col-5 column-spacing ">
                 <img src="${garment.image}" alt="Image of ${garment.name}" /> 
             </div>
         </div>
@@ -185,14 +190,14 @@ function displayItem(event) {
     delButton.addEventListener('click', function() {
         li.remove();
         localGarments.forEach(function(garmentArrayElement, garmentArrayIndex) {
-            if (garmentArrayElement.id == item.getAttribute('data-id')) {
+            if (garmentArrayElement.id == ID) {
                 localGarments.splice(garmentArrayIndex, 1);
             }
         })
 
         localStorage.setItem('garments', JSON.stringify(localGarments));
 
-        item.remove();
+        garment.remove();
     })
     
     // Show the item display
@@ -263,6 +268,7 @@ function addGarment(name, brand, size, colour, materialOne, materialTwo, cost, s
     }
 
     let localGarments = JSON.parse(localStorage.getItem('garments'));
+    console.log(localGarments);
 
     if (localGarments == null) {
         localGarments = [garment];
@@ -277,7 +283,6 @@ function addGarment(name, brand, size, colour, materialOne, materialTwo, cost, s
     localStorage.setItem('garments', JSON.stringify(localGarments));
 
     displayGarment();
-    displayItem();
 }
 
 displayGarment();
