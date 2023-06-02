@@ -25,52 +25,52 @@
                 <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
                     <h1 class="homePg-headers">Categories</h1> <!-- Categories header -->
                     <div class="parent">
-                        <button type="submit" class="homePg-btn show-modal"> <!-- Tops category button -->
+                        <button type="submit" class="homePg-btn show-modal" data-category="TOPS"> <!-- Tops category button -->
                             <img src="./Images/Tops.svg" alt="Top icon with red circle"/>
                             TOPS
                         </button>
                         <!-- Repeat the above button structure for other categories -->
-                        <button type="submit" class="homePg-btn show-modal">
+                        <button type="submit" class="homePg-btn show-modal" data-category="DRESSES">
                             <img src="./Images/Dresses.svg" alt="Dress icon with red circle"/>
                             DRESSES
                         </button>
-                        <button type="submit" class="homePg-btn show-modal">
+                        <button type="submit" class="homePg-btn show-modal" data-category="SHOES">
                             <img src="./Images/Shoes.svg" alt="Shoe icon with red circle"/>
                             SHOES
                         </button>
-                        <button type="submit" class="homePg-btn show-modal">
+                        <button type="submit" class="homePg-btn show-modal" data-category="ACCESSORIES">
                             <img src="./Images/Accessories.svg" alt="Sunglasses icon with red circle"/>
                             ACCESSORIES
                         </button>
-                        <button type="submit" class="homePg-btn show-modal">
+                        <button type="submit" class="homePg-btn show-modal" data-category="SKIRTS">
                             <img src="./Images/Skirts.svg" alt="Skirt icon with red circle"/>
                             SKIRTS
                         </button>
-                        <button type="submit" class="homePg-btn show-modal">
+                        <button type="submit" class="homePg-btn show-modal" data-category="PANTS">
                             <img src="./Images/Pants.svg" alt="Pants icon with red circle"/>
                             PANTS
                         </button>
-                        <button type="submit" class="homePg-btn show-modal">
+                        <button type="submit" class="homePg-btn show-modal" data-category="OUTERWEAR">
                             <img src="./Images/Outerwear.svg" alt="Jacket icon with red circle"/>
                             OUTERWEAR
                         </button>
-                        <button type="submit" class="homePg-btn show-modal">
+                        <button type="submit" class="homePg-btn show-modal" data-category="PYJAMAS">
                             <img src="./Images/Pyjamas.svg" alt="Pyjamas icon with red circle"/>
                             PYJAMAS
                         </button>
-                        <button type="submit" class="homePg-btn show-modal">
+                        <button type="submit" class="homePg-btn show-modal" data-category="SHIRTS">
                             <img src="./Images/Shirts.svg" alt="Shirt icon with red circle"/>
                             SHIRTS
                         </button>
-                        <button type="submit" class="homePg-btn show-modal">
+                        <button type="submit" class="homePg-btn show-modal" data-category="JUMPSUITS">
                             <img src="./Images/Jumpsuit.svg" alt="Jumpsuit icon with red circle"/>
                             JUMPSUITS
                         </button>
-                        <button type="submit" class="homePg-btn show-modal">
+                        <button type="submit" class="homePg-btn show-modal" data-category="UNDERWEAR">
                             <img src="./Images/Underwear.svg" alt="Bra icon with red circle"/>
                             UNDERWEAR
                         </button>
-                        <button type="submit" class="homePg-btn show-modal">
+                        <button type="submit" class="homePg-btn show-modal" data-category="OTHER">
                             <img src="./Images/Other.svg" alt= "Question mark icon with red circle"/>
                             OTHER
                         </button>
@@ -94,6 +94,7 @@
                 <form id="garmentForm" class="hidden">
                     <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 column-spacing">
+                            <input type="hidden" name="garmentCategory" id="garmentCategory" required="true" />
                             <label for="garmentName">Item Name</label>
                             <input type="text" name="garmentName" id="garmentName" required="true" />
                             <br/>
@@ -125,43 +126,43 @@
                                 <div class="col-6 column-spacing">
                                     <label for="garmentMaterialOne">Material 1</label>
                                         <select id="garmentMaterialOne" name="garmentMaterialOne" required="false">
-                                            <option value="select">Select material type:</option>
-                                            <option value="chiffon">Chiffon</option>
-                                            <option value="cotton">Cotton</option>
-                                            <option value="crepe">Crepe</option>
-                                            <option value="denim">Denim</option>
-                                            <option value="bamboo">Bamboo</option>
-                                            <option value="lace">Lace</option>
-                                            <option value="polyester">Poylester</option>
-                                            <option value="rayon">Rayon</option>
-                                            <option value="leather">Leather</option>
-                                            <option value="linen">Linen</option>
-                                            <option value="satin">Satin</option>
-                                            <option value="silk">Silk</option>
-                                            <option value="velvet">Velvet</option>
-                                            <option value="wool">Wool</option>
-                                            <option value="other">Other</option>
+                                            <option value="NoneSelected">Select material type:</option>
+                                            <option value="Chiffon">Chiffon</option>
+                                            <option value="Cotton">Cotton</option>
+                                            <option value="Crepe">Crepe</option>
+                                            <option value="Denim">Denim</option>
+                                            <option value="Bamboo">Bamboo</option>
+                                            <option value="Lace">Lace</option>
+                                            <option value="Polyester">Poylester</option>
+                                            <option value="Rayon">Rayon</option>
+                                            <option value="Leather">Leather</option>
+                                            <option value="Linen">Linen</option>
+                                            <option value="Satin">Satin</option>
+                                            <option value="Silk">Silk</option>
+                                            <option value="Velvet">Velvet</option>
+                                            <option value="Wool">Wool</option>
+                                            <option value="Other">Other</option>
                                         </select>
                                 </div>
                                 <div class="col-6 column-spacing">
                                     <label for="garmentMaterialTwo">Material 2</label>
                                         <select id="garmentMaterialTwo" name="garmentMaterialTwo" required="false">
-                                            <option value="select">Select material type:</option>
-                                            <option value="chiffon">Chiffon</option>
-                                            <option value="cotton">Cotton</option>
-                                            <option value="crepe">Crepe</option>
-                                            <option value="denim">Denim</option>
-                                            <option value="bamboo">Bamboo</option>
-                                            <option value="lace">Lace</option>
-                                            <option value="polyester">Poylester</option>
-                                            <option value="rayon">Rayon</option>
-                                            <option value="leather">Leather</option>
-                                            <option value="linen">Linen</option>
-                                            <option value="satin">Satin</option>
-                                            <option value="silk">Silk</option>
-                                            <option value="velvet">Velvet</option>
-                                            <option value="wool">Wool</option>
-                                            <option value="other">Other</option>
+                                            <option value="NoneSelected">Select material type:</option>
+                                            <option value="Chiffon">Chiffon</option>
+                                            <option value="Cotton">Cotton</option>
+                                            <option value="Crepe">Crepe</option>
+                                            <option value="Denim">Denim</option>
+                                            <option value="Bamboo">Bamboo</option>
+                                            <option value="Lace">Lace</option>
+                                            <option value="Polyester">Poylester</option>
+                                            <option value="Rayon">Rayon</option>
+                                            <option value="Leather">Leather</option>
+                                            <option value="Linen">Linen</option>
+                                            <option value="Satin">Satin</option>
+                                            <option value="Silk">Silk</option>
+                                            <option value="Velvet">Velvet</option>
+                                            <option value="Wool">Wool</option>
+                                            <option value="Other">Other</option>
                                         </select>
                                 </div>
                             </div>
@@ -212,7 +213,8 @@
                     </div>
                     <div class="row center-items">
                         <div class="col-12">
-                            <input type="submit" id="hideElement"/>
+                            <input type="submit"/>
+                            <button class="itemCloseButton" id="hideElement">Close</button>
                         </div>
                     </div>
                 </form>
