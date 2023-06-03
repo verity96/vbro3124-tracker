@@ -1,4 +1,5 @@
 
+//Setting styling for the category buttons on home page
 .homePg-btn {
     background-color: #FBF0D6;
     color: #414042;
@@ -10,6 +11,7 @@
     }
 }
 
+//Sets hover state of category button
 .homePg-btn:hover {
     background-color: #EB5B44;
     color: #ffffff;
@@ -18,6 +20,7 @@
     cursor: pointer;
 }
 
+//Styling for 'Add Item' button on modal
 .addItem-btn {
     background-color: #EB5B44;
     color: #ffffff;
@@ -30,6 +33,7 @@
     margin-right: 10px;
 }
 
+//Styling for X button
 .close-btn {
     background-color: #EB5B44;
     color: #ffffff;
@@ -39,17 +43,20 @@
     cursor: pointer;
 }
 
+//Hover states for all red buttons
 .addItem-btn:hover, .close-btn:hover, .deleteButton:hover {
     background-color: #414042;
     color: #ffffff;
 }
 
+//Active state for all red buttons
 .addItem-btn:active, .close-btn:active, .deleteButton:active {
     background-color: #F4AFCF;
     color: #414042;
     transform: translateY(4px);
 }
 
+//Styling for submit button on form
 input[type=submit] {
     background-color: #EB5B44;
     color: #ffffff;
@@ -60,6 +67,7 @@ input[type=submit] {
     cursor: pointer;
 }
 
+//Styling for delete button on individual items
 .deleteButton {
     background-color: #EB5B44;
     color: #ffffff;
@@ -71,6 +79,7 @@ input[type=submit] {
     text-align: center;
 }
 
+//Styling of gre close buttons
 .itemCloseButton {
     background-color: #d6d6d6;
     color: #414042;

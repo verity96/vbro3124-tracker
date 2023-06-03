@@ -1,12 +1,15 @@
+/*Importing fonts from Google Fonts*/
 @import url('https://fonts.googleapis.com/css2?family=Lustria&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
 
+//Titles set as Lustria
 h1 {
     font-family: 'Lustria', serif;
     font-size: 30px;
     color: #414042;
 }
 
+//All other text set to Mulish
 h2, h3, h4, h5, h6, p, label, select {
     font-family: 'Mulish', sans-serif;
     color: #414042;

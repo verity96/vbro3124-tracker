@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Attire</title>
     <link rel="stylesheet" href="scss/main.scss" /> <!-- External stylesheet -->
-    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 </head>
 <body>
-    <header>
+    <header> <!--Top banner with logo and message-->
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-9 col-xl-9 col-xxl-9 no-padding">
                 <img src="./Images/Asset 1.svg" alt="Attire logo image"/> <!-- Logo image -->
@@ -20,9 +19,9 @@
         </div>
     </header>
     <main>
-        <div class="container">
-            <div class="row category-box">
-                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+        <div class="container"> <!--Home page content with category buttons and wardrobe display-->
+            <div class="row category-box"><!--Category button section-->
+                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6"> <!--Setting responsive design-->
                     <h1 class="homePg-headers">Categories</h1> <!-- Categories header -->
                     <div class="parent">
                         <button type="submit" class="homePg-btn show-modal" data-category="TOPS"> <!-- Tops category button -->
@@ -84,17 +83,17 @@
                 </div>
             </div>
         </div>
-        <div class="modal-box">
-            <div class="modal-header">
+        <div class="modal-box"> <!--Pop up modal. Activates when category buttons or item tiles are clicked-->
+            <div class="modal-header"> <!--Header of modal-->
                 <h1 id="modal-category"></h1>
                 <button id="showElement" class="addItem-btn">Add Item</button>
                 <button class="close-btn">X</button>
             </div>
-            <div class="modal-body">
-                <form id="garmentForm" class="hidden">
+            <div class="modal-body"> <!--Modal body content. Includes form, item display and single item with details-->
+                <form id="garmentForm" class="hidden"> <!--Form-->
                     <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 column-spacing">
-                            <input type="hidden" name="garmentCategory" id="garmentCategory" required="true" />
+                            <input type="hidden" name="garmentCategory" id="garmentCategory" required="true" /> 
                             <label for="garmentName">Item Name</label>
                             <input type="text" name="garmentName" id="garmentName" required="true" />
                             <br/>
@@ -104,7 +103,7 @@
                             <label for="garmentSize">Size</label>
                             <input type="text" name="garmentSize" id="garmentSize" required="false" />
                             <br/>
-                            <label for="garmentColour">Colour</label>
+                            <label for="garmentColour">Colour</label> <!--Dropdown field-->
                                 <select id="garmentColour" name="garmentColour" required="true">
                                     <option value="None">Select option:</option>
                                     <option value="Red">Red</option>
@@ -208,19 +207,19 @@
                                 </fieldset>
                             <br/>
                             <label for="garmentImage">Image Upload</label>
-                            <input name="garmentImage" id="garmentImage" type="file" />
+                            <input name="garmentImage" id="garmentImage" type="file" /> <!--Upload external image file-->
                         </div>
                     </div>
                     <div class="row center-items">
                         <div class="col-12">
                             <input type="submit"/>
-                            <button class="itemCloseButton" id="hideElement">Close</button>
+                            <button class="itemCloseButton" id="hideElement">Close</button> <!--Closes/hides form-->
                         </div>
                     </div>
                 </form>
-                <div id="garmentDisplay">
+                <div id="garmentDisplay"> <!--Tiles displaying items in their categories. Displays when displayGarmentsInCategory() runs-->
                     <div class="row">
-                        <div class="col-12 column-spacing">
+                        <div class="col-12 column-spacing"> <!--Success message, shows when item is added-->
                             <div id="successfulAdd" class="center-items success_text">
                                 <img src="./Images/Asset 27.svg" alt= "Green check mark in circle"/>
                                 <h3>Success!</h3>
@@ -232,8 +231,7 @@
                         </div>
                     </div>
                 </div>
-                <!--TODO: Show item when card is clicked and hide all else-->
-                <div id="itemDisplay" class="hidden">
+                <div id="itemDisplay" class="hidden"> <!--Shows when displayItem() runs-->
                     <ul id="itemList">
                         <!--Displays single item with all details-->
                     </ul>

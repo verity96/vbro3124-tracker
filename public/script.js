@@ -1,4 +1,4 @@
-
+//Pulling through element IDs
 const form = document.getElementById('garmentForm');
 const garmentElem = document.querySelector('#garmentList');
 const wardrobeElem = document.querySelector('#wardrobeList');
@@ -8,7 +8,10 @@ const successMessage = document.querySelector('#successfulAdd');
 
 //Adds item to local storage array from form submission
 form.addEventListener('submit', function (event) {
+    //Prevents default form submit behaviour
     event.preventDefault();
+
+    //Displays success message when the form is submitted
     successMessage.classList.add('show');
 
     let reader = new FileReader();
@@ -43,6 +46,7 @@ form.addEventListener('submit', function (event) {
 
 })
 
+//Function to convert the stored number on input ratings to a star string value
 function convertComfortRating(comfortRate) {
     let comfortRating = "";
     if (comfortRate == 1) {
@@ -61,24 +65,26 @@ function convertComfortRating(comfortRate) {
     return comfortRating
 }
 
-
+//Generates innerHTML to display the tiles
 function generateGarmentItem(garment) {
+    //Creates a new <li></li> element in HTML
     let item = document.createElement('li');
 
+    //Assigns the convertComfortRating function to a variable with a value to be converted
     let comfortRating = convertComfortRating(garment.comfortRate);
 
-    //Creates card for Home page
+    //Creates card for Home page, assigning the tile with its ID number
     item.setAttribute('data-id', garment.id);
     item.innerHTML = `
         <div class="card itemDetails">
             <div class="row">
-                <div class="col-8 column-spacing">
+                <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-8 column-spacing">
                     <h3> ${garment.brand} </h3>
                     <p> ${garment.name} </p>
                     <p id="wearcount"> Wears: ${garment.wearCount} </p>
                     <p> Comfort Rating: <span style="color:#F4AFCF">${comfortRating}</span> </p>
                 </div>
-                <div class="col-4 column-spacing">
+                <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 column-spacing">
                     <img src=${garment.image} class="itemImg" alt="Image of ${garment.name}" /> 
                 </div>
             </div>
@@ -89,22 +95,29 @@ function generateGarmentItem(garment) {
         </div>
     `;
 
+    //Gets div with class 'button-container' for the item from the above HTML
     let buttonContainer = item.querySelector('.button-container');
+    //Creates a <button> element
     let wearCountButton = document.createElement('button');
+    //Add a class to the created button
     wearCountButton.classList.add('addWear-btn');
+    //Adds text content to the created button
     wearCountButton.textContent = 'ADD WEAR +';
+    //Appends the button to the buttonContainer
     buttonContainer.appendChild(wearCountButton);
 
+    //EventListener to detect when the ADD WEAR + button has been clicked
     wearCountButton.addEventListener('click', function (event) {
-        event.stopPropagation();
-        let localGarments = JSON.parse(localStorage.getItem('garments'));
+        event.stopPropagation(); // Stops parent event handlers from being executed
+        let localGarments = JSON.parse(localStorage.getItem('garments')); //Retrieves all items from garments in localStorage
+        //Finds the item from localStorage that matches the id of the current item being clicked and increments the wearCount by 1 and updating the innerHTML display.
         localGarments.forEach(function (wearElement) {
             if (wearElement.id == item.getAttribute('data-id')) {
                 wearElement.wearCount++;
                 item.querySelector("#wearcount").innerHTML = "Wears " + wearElement.wearCount;
             }
         })
-        localStorage.setItem('garments', JSON.stringify(localGarments));
+        localStorage.setItem('garments', JSON.stringify(localGarments)); //Sets the new value in localStorage
 
     });
 
@@ -114,13 +127,16 @@ function generateGarmentItem(garment) {
 //Displaying item cards with add wear button
 function displayGarmentsInWardrobe() {
 
+    //Clears innerHTML before running function
     wardrobeElem.innerHTML = "";
     garmentElem.innerHTML = "";
 
-    let localGarments = JSON.parse(localStorage.getItem('garments'));
+    let localGarments = JSON.parse(localStorage.getItem('garments')); //Retrieves all items from localStorage
 
+    //Checks if localGarments variable has values
     if (localGarments !== null) {
 
+        //Adds each item found to wardrobe list
         localGarments.forEach((garment) => {
 
             let item = generateGarmentItem(garment);
@@ -129,6 +145,7 @@ function displayGarmentsInWardrobe() {
             wardrobeElem.prepend(item);
             form.reset();
             
+            //When the item is clicked on it will activate the modal and display the page with all item details
             item.addEventListener('click', () => {
                 itemDisplay.classList.remove("hidden");
                 garmentDisplay.classList.add("hidden");
@@ -141,12 +158,13 @@ function displayGarmentsInWardrobe() {
 }
 
 
-
+//Displays all items in the modal filtered by their categories
 function displayGarmentsInCateogry() {
-    garmentElem.innerHTML = "";
+    garmentElem.innerHTML = ""; //Clears the modal display
 
-    let localGarments = JSON.parse(localStorage.getItem('garments'));
+    let localGarments = JSON.parse(localStorage.getItem('garments')); //Retrieves all items from localStorage
 
+    //Checks to see if the item exists and has a matching category value to then generate a card and append it to the modal
     if (localGarments !== null) {
 
         localGarments.forEach((garment) => {
@@ -157,6 +175,7 @@ function displayGarmentsInCateogry() {
                 //Adds card to modal
                 garmentElem.prepend(itemModal);
 
+                //When the card is clicked it displays the pages with all item details and delete button - displayItem()
                 itemModal.addEventListener('click', () => {
                     itemDisplay.classList.remove("hidden");
                     garmentDisplay.classList.add("hidden");
@@ -169,26 +188,25 @@ function displayGarmentsInCateogry() {
 
 // Function to display item details
 function displayItem(item) {
-    console.log(item)
     // Get the data-id attribute of the clicked card
     const itemId = item.getAttribute('data-id');
-    console.log(itemId);
     // Retrieve the item from localStorage using the itemId
     let localGarments = JSON.parse(localStorage.getItem('garments'))
     let garment = localGarments.find(function (garment) {
         return garment.id == itemId;
     })
-    console.log(garment)
     currentCategory = garment.category
     modalCategory.textContent = currentCategory;
 
     // Clear the itemList
     itemElem.innerHTML = "";
 
-    // Create elements to display item details
+    // Create list elements to display item details
     const li = document.createElement('li');
+    //Uses function to display stars for ratings
     let comfortRating = convertComfortRating(garment.comfortRate);
     let fitRating = convertComfortRating(garment.fitRate);
+    //Generates HTML content
     li.innerHTML = `
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-7 col-xl-7 col-xxl-7 column-spacing">
@@ -209,15 +227,16 @@ function displayItem(item) {
             </div>
         </div>
     `;
-    itemElem.appendChild(li);
+    itemElem.appendChild(li); //Appends content to list item
 
     //Create delete button
     let delButton = document.createElement('button');
-    let delButtonText = document.createTextNode('Delete');
-    delButton.setAttribute('class', 'deleteButton');
-    delButton.appendChild(delButtonText);
-    li.appendChild(delButton);
+    let delButtonText = document.createTextNode('Delete'); //Adds text to button
+    delButton.setAttribute('class', 'deleteButton'); //Adds class to the button
+    delButton.appendChild(delButtonText); //Adds text to the button element
+    li.appendChild(delButton); //Appends the button to each item
 
+    //Listens for when delete button is clicked and gets the item by its id to remove it from the array
     delButton.addEventListener('click', function () {
         li.remove();
         localGarments.forEach(function (garmentArrayElement, garmentArrayIndex) {
@@ -226,10 +245,11 @@ function displayItem(item) {
             }
         })
 
-        localStorage.setItem('garments', JSON.stringify(localGarments));
+        localStorage.setItem('garments', JSON.stringify(localGarments)); //Sets the new array to local storage
 
-        item.remove();
+        item.remove(); //Deletes the item
 
+        //Shows and hides elements so that the modal closes and resets
         main.classList.remove("active");
         garmentDisplay.classList.remove("hidden");
         itemDisplay.classList.add("hidden");
@@ -240,6 +260,7 @@ function displayItem(item) {
         displayGarmentsInWardrobe();
     })
 
+    //Creates close button and adds it to the item
     let itemCloseButton = document.createElement('button');
     let itemCloseText = document.createTextNode('Close');
     itemCloseButton.setAttribute('class', 'itemCloseButton');
@@ -247,6 +268,7 @@ function displayItem(item) {
     itemCloseButton.appendChild(itemCloseText);
     li.appendChild(itemCloseButton);
 
+    //When the close button is clicked it takes the user back one page to see the category list again
     itemCloseButton.addEventListener('click', function() {
         itemDisplay.classList.add("hidden");
         garmentDisplay.classList.remove("hidden");
@@ -254,12 +276,11 @@ function displayItem(item) {
     })
 
     // Show the item display
-    
     document.getElementById('itemDisplay').style.display = 'block';
 }
 
 
-//Showing and hiding different elements
+//Pulling element ids and classes to show and hide different elements
 const formElement = document.getElementById("garmentForm");
 const garmentDisplay = document.getElementById("garmentDisplay");
 const itemDisplay = document.getElementById("itemDisplay");
@@ -269,7 +290,7 @@ const itemDetailsCard = document.getElementById("itemDisplay");
 let showItem = document.querySelectorAll(".itemDetails");
 let currentCategory = "";
 
-//Shows form when Add Item button clicked
+//Shows form when Add Item button clicked pulling the value for the current category
 showButton.addEventListener("click", () => {
     formElement.classList.remove("hidden");
     garmentDisplay.classList.add("hidden");
@@ -277,7 +298,7 @@ showButton.addEventListener("click", () => {
     formElement.elements.garmentCategory.value = currentCategory
 });
 
-//Hides form and displays items when Submit button clicked
+//Hides form and displays item cards when Submit button clicked
 hideButton.addEventListener("click", () => {
     formElement.classList.add("hidden");
     garmentDisplay.classList.remove("hidden");
@@ -305,8 +326,9 @@ function addGarment(name, brand, size, colour, materialOne, materialTwo, cost, s
         wearCount: 0
     }
 
-    let localGarments = JSON.parse(localStorage.getItem('garments'));
+    let localGarments = JSON.parse(localStorage.getItem('garments')); //Pulls existing items from local storage
 
+    //Checks if there are already items in local storage and displays it. Then checks for items with the same id otherwise it will add the new item to local storage
     if (localGarments == null) {
         localGarments = [garment];
     } else {
@@ -319,18 +341,20 @@ function addGarment(name, brand, size, colour, materialOne, materialTwo, cost, s
 
     localStorage.setItem('garments', JSON.stringify(localGarments));
 
-    displayGarmentsInWardrobe();
+    displayGarmentsInWardrobe(); //Runs the function to update wardrobe display when new items added
 
 }
 
+//Run function on initial load before adding new items to display whats already in local storage
 displayGarmentsInWardrobe();
 
 /*Modal pop-up showing and hiding with names of category tiles*/
 const main = document.querySelector('main'),
-    modalCategory = document.querySelector('#modal-category'),
-    showBtn = document.querySelectorAll('.show-modal'),
-    closeBtn = document.querySelector('.close-btn');
+modalCategory = document.querySelector('#modal-category'),
+showBtn = document.querySelectorAll('.show-modal'),
+closeBtn = document.querySelector('.close-btn');
 
+//Activates the modal when clicking a category button. Pulls through the current category and displays the items associated with the category.
 showBtn.forEach((button) => {
     button.addEventListener('click', (event) => {
         main.classList.add("active");
@@ -340,10 +364,13 @@ showBtn.forEach((button) => {
     });
 })
 
+// X button on modal. Resets all elements so that when a category is clicked it will show the category items.
 closeBtn.addEventListener('click', () => {
     successMessage.classList.remove("show")
     main.classList.remove("active")
     itemDisplay.classList.add("hidden")
+    formElement.classList.add("hidden")
+    garmentDisplay.classList.remove("hidden")
     currentCategory = "";
     
     // Run again to update list in case wear count has changed

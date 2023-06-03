@@ -1,3 +1,4 @@
+//Imports separate SASS files
 @import 'layout';
 @import 'typography';
 @import 'buttons';
@@ -11,6 +12,7 @@ html, body {
     overflow-x: hidden;
 }
 
+//Styling for top banner with logo
 header {
     background-color: #FBF0D6;
     img {
@@ -24,6 +26,7 @@ header {
     }
 }
 
+//Sets background to pink
 body {
     background-color: #F4AFCF;
     margin-bottom: 4rem;
@@ -35,6 +38,7 @@ main {
     width: 100%;
 }
 
+//Styling for common footer
 footer {
     background-color: #EB5B44;
     position: fixed;
@@ -48,26 +52,30 @@ footer {
     }
 }
 
+//Styling to change the scroll bar
 body::-webkit-scrollbar {
     width: 0.4em;
-  }
-   
-  body::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  }
-   
-  body::-webkit-scrollbar-thumb {
-    background-color: #EB5B44;
-  }
+}
 
+body::-webkit-scrollbar-track {
+box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+background-color: #EB5B44;
+}
+
+//Used to easliy take out padding on an item if other classes overlap
 .no-padding {
     padding: 0px;
 }
 
+//Spacing for 'Category' and 'Wardrobe' heading
 .homePg-headers {
     padding: 0.75em 0px;
 }
 
+//Styling for modal with positioning and transitions
 .modal-box {
     max-width: 1000px;
     width: 100%;
@@ -87,6 +95,7 @@ body::-webkit-scrollbar {
     overflow-x: hidden;
 }
 
+//Styling for scrollbar on modal
 .modal-box::-webkit-scrollbar {
     width: 0.4rem;
     margin: 10px 0px;
@@ -103,12 +112,14 @@ body::-webkit-scrollbar {
     border-radius: 5px;
 }
 
+//Shows modal when the active class is added
 main.active .modal-box {
     opacity: 1;
     pointer-events: auto;
     transform: translate(-50%, -60%) scale(1);
 }
 
+//Styling to set up header wtih title
 .modal-header {
     display: flex;
     flex-direction: row;
@@ -121,6 +132,7 @@ main.active .modal-box {
     }
 }
 
+//Styling for all form elements
 #garmentForm {
     padding: 30px 50px;
     label {
@@ -147,6 +159,7 @@ main.active .modal-box {
     }
 }
 
+//Styling for tiles in modal
 #garmentDisplay {
     padding: 30px 50px;
     li {
@@ -175,9 +188,19 @@ main.active .modal-box {
             width: 100%;
             text-align: left;
         }
+        .addWear-btn:hover {
+            color: #414042;
+            background-color: #FBF0D6;
+        }
+        
+        .addWear-btn:active {
+            color: #414042;
+            background-color: #C7EBC1;
+        }
     }
 }
 
+//Styling for tiles in Wardrobe on home page
 #wardrobeDisplay {
     li {
         list-style-type: none;
@@ -220,12 +243,14 @@ main.active .modal-box {
     }
 }
 
+//Sets height for wardrobe and adds a scrollbar
 #wardrobeList {
     height: 40rem;
     overflow-y: scroll;
     padding-right: 5px;
 }
 
+//Styling for wardrobe scrollbar
 #wardrobeList::-webkit-scrollbar {
     width: 0.4rem;
 }
@@ -240,6 +265,7 @@ main.active .modal-box {
     border-radius: 5px;
 }
 
+//Tile styling
 .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     background-color: white;
@@ -256,6 +282,7 @@ main.active .modal-box {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
+//Positions items center
 .center-items {
     justify-content: center;
     align-items: center;
@@ -264,14 +291,16 @@ main.active .modal-box {
 
 .img-dest {
     display: block;
-    width:400px;
-    margin-top:20px;
+    width: 400px;
+    margin-top: 20px;
 }
 
+//Sets width of star rating
 fieldset {
     width: 100%;
 }
 
+//Styling for star ratings in form
 .rate {
     border: none;
     margin: 0px;
@@ -317,6 +346,7 @@ fieldset {
     color: #F4AFCF;
 }
 
+//Styling for individual item display
 #itemDisplay{
     padding: 2rem 2.5rem;
     .itemWears {
@@ -333,10 +363,12 @@ fieldset {
     }
 }
 
+//Hidden class for showing and hiding elements with JS
 .hidden {
     display: none !important;
 }
 
+//Styling for success message when submitting the form
 .success_text {
     display: none;
     text-align: center;
@@ -347,7 +379,110 @@ fieldset {
     display: block;
 }
 
+//Setting size for images on tiles
 .itemImg {
     width: 100%;
     height: auto;
 }
+
+/*Mobile L grid sizing*/
+@media (max-width: 426px) {
+    .category-box {
+        padding: 0 20px;
+        margin-top: 0px;
+    }
+
+    .parent {
+        height: 29rem;
+        grid-column-gap: 5px;
+        grid-row-gap: 5px;
+        img {
+            padding: 5px 15px;
+        }
+    }
+
+    #garmentDisplay {
+        padding: 1.5rem;
+    }
+
+    #itemDisplay {
+        padding: 1.5rem;
+    }
+
+    .addItem-btn {
+        padding: 3px 8px;
+        font-size: small;
+        margin-right: 5px;
+    }
+
+    #garmentForm {
+        padding: 2rem;
+        .itemCloseButton {
+            margin-left: 0px;
+            margin-top: 0px;
+            font-size: 18px;
+        }
+    }
+}
+
+/*Mobile M grid sizing*/
+@media (max-width: 376px) {
+    .container {
+        padding-bottom: 10rem;
+    }
+
+    .parent {
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr) );
+        height: 28rem;
+    }
+    
+    button {
+        padding: .5rem 1rem;
+        font-size: .1rem;
+    }
+
+    #garmentDisplay {
+        padding: 1rem;
+    }
+    
+    #garmentForm {
+        padding: 1.5rem;
+    }
+
+    .modal-header {
+        padding: 15px 20px;
+        h1 {
+            margin-top: 0.3rem;
+        }
+    }
+
+    #successfulAdd {
+        margin-bottom: 1rem;
+    }
+}
+
+/*Mobile S grid sizing*/
+@media (max-width: 320px) {
+    .container {
+        padding-bottom: 25rem;
+    }
+
+    .parent {
+        grid-template-columns: repeat(auto-fit, minmax(70px, 1fr) );
+        height: 10rem;
+    }
+
+    #itemDisplay {
+        .itemCloseButton {
+            margin-left: 0px;
+        }
+    }
+
+    #garmentForm {
+        .itemCloseButton {
+            font-size: 15px;
+        }
+    }
+
+}
+
