@@ -4,7 +4,7 @@
 ## Application Configuration and Deployment Procedures
 Use npm install to download the following dependencies:
 - Express
-The app server will be running on port 8881 for localhost if using 'npm run start' to run the code.<br/>
-You can also use npm run dev to run the code.
+The app server will be running on port 8881 for localhost if using __npm run start__ to run the code.<br/>
+You can also use __npm run dev__ to run the code.
 
 - SASS
