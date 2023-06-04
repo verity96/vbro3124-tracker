@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Web Application for tracking...",
   "scripts": {
-    "start": "node erver.js",
+    "start": "node server.js",
     "prestart": "parcel build ./public/index.html",
     "dev": "parcel serve ./public/index.html"
   },
